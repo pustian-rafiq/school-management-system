@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,9 @@ Route::middleware([
 
 // Admin logout
 Route::get('admin/logout', [AdminController::class,'Logout'])->name('admin.logout');
+
+//Users routes here 
+
+Route::prefix('users')->group(function () {
+    Route::get('/view', [UserController::class,'ViewUser'])->name('user.view');
+});
