@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +26,6 @@ Route::middleware([
         return view('admin.index');
     })->name('dashboard');
 });
+
+// Admin logout
+Route::get('admin/logout', [AdminController::class,'Logout'])->name('admin.logout');
