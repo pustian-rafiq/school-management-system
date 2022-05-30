@@ -17,6 +17,8 @@
 	<link rel="stylesheet" href="{{ asset('backend/css/style.css')}}">
 	<link rel="stylesheet" href="{{ asset('backend/css/skin_color.css')}}">
      
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"   crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- CSS -->
 {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" /> --}}
@@ -318,9 +320,9 @@
 	 <!-- JS -->
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script> --}}
 	<!-- Vendor JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
 
 	<script src="{{ asset('backend/js/vendors.min.js')}}"></script>
     <script src="{{ asset('assets/icons/feather-icons/feather.min.js')}}"></script>	
@@ -336,8 +338,47 @@
 	<script src="{{ asset('backend/js/template.js')}}"></script>
 	<script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
 	
- 
+	
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript">
+
+		$(function(){
+			$(document).on("click","#delete",function(e){
+					e.preventDefault();
+					var link = $(this).attr("href");
+					Swal.fire({
+						title: 'Do you want to delete this?',
+						//showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: 'Yes',
+						denyButtonText: 'No',
+						customClass: {
+							actions: 'my-actions',
+							cancelButton: 'order-1 right-gap',
+							confirmButton: 'order-2',
+							denyButton: 'order-3',
+						}
+						}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href =link;
+							Swal.fire('Yes! Successfully deleted your data', '', 'success')
+						} else if (result.isDenied) {
+							Swal.fire('Saved', '', 'info')
+						}
+})
+
+				});
+		})
+     
+
+    </script>
+
+
+
+
 <script>
 
  @if(Session::has('message'))
