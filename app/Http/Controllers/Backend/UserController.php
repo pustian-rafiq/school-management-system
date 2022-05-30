@@ -13,4 +13,9 @@ class UserController extends Controller
         $users = User::all();
         return view('backend.user.view_user', compact('users'));
     }
+    //Show user add form
+
+    public function AddUser(){
+        return view('backend.user.add_user');
+    }
 }

@@ -1,0 +1,80 @@
+@extends('admin.admin_master')
+
+@section('content')
+
+
+<section class="content">
+
+    <!-- Basic Forms -->
+     <div class="box">
+       <div class="box-header with-border">
+         <h4 class="box-title">Add New User</h4>
+         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('user.view')}}">View Users </a> 
+       </div>
+       <!-- /.box-header -->
+       <div class="box-body">
+         <div class="row">
+           <div class="col">
+               <form novalidate>
+                    <div class="row">
+                        <div class="col-6"> 
+                            <div class="form-group">
+                                <h5>Select Role <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <select name="select" id="select" required class="form-control">
+                                        <option value="">Select Your City</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">User</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-6">						
+                            <div class="form-group">
+                                <h5>Username <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input type="text" name="name" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your username">
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">		
+                            <div class="form-group">
+                                <h5>User Email <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input type="email" name="email" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your email"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">		   
+                            <div class="form-group">
+                                <h5>User Password <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input type="password" name="password" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your password">
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                        
+                        <div class="text-xs-right">
+                            <button type="submit" class="btn btn-rounded btn-info">Submit</button>
+                        </div>
+                </form>
+
+           </div>
+           <!-- /.col -->
+         </div>
+         <!-- /.row -->
+       </div>
+       <!-- /.box-body -->
+     </div>
+     <!-- /.box -->
+
+   </section>
+
+   @endsection
