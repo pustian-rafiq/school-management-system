@@ -8,8 +8,8 @@
     <!-- Basic Forms -->
      <div class="box">
        <div class="box-header with-border">
-         <h4 class="box-title">Add New User</h4>
-         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('user.view')}}">View Users </a> 
+         <h4 class="box-title">Edit User</h4>
+         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('user.add')}}">Add User</a>
        </div>
        <!-- /.box-header -->
        <div class="box-body">
@@ -24,8 +24,8 @@
                                 <div class="controls">
                                     <select name="user_type" id="select" required class="form-control">
                                         <option value="">Select a role</option>
-                                        <option value="Admin">Admin</option>
-                                        <option value="User">User</option>
+                                        <option value="Admin" {{($editUser->user_type == 'Admin') ? 'selected' : ''}}>Admin</option>
+                                        <option value="User"  {{($editUser->user_type == 'User') ? 'selected' : ''}}>User</option>
                                     </select>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <h5>Username <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required  placeholder="Enter your username">
+                                    <input type="text" name="name" class="form-control" required value="{{ $editUser->name }}"  placeholder="Enter your username">
                                  </div>
                             </div>
                         </div>
@@ -47,18 +47,9 @@
                             <div class="form-group">
                                 <h5>User Email <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="email" name="email" class="form-control" required   placeholder="Enter your email"> 
+                                    <input type="email" name="email" class="form-control" required value="{{ $editUser->email }}"  placeholder="Enter your email"> 
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-6">		   
-                            <div class="form-group">
-                                <h5>User Password <span class="text-danger">*</span></h5>
-                                <div class="controls">
-                                    <input type="password" name="password" class="form-control" required   placeholder="Enter your password">
-                                </div>
-                            </div>  
                         </div>
                     </div>
                         

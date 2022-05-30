@@ -35,6 +35,19 @@ class UserController extends Controller
         $data->password = bcrypt($request->password);
 
         $data->save();
+
+        $notification = array(
+            'message' => 'User added successfully',
+            'alert-type' => 'success',
+        );
         return redirect()->route('user.view');
+    }
+
+
+    public function EditUser($id) {
+        $editUser = User::find($id);
+
+        return view('backend.user.edit_user', compact('editUser'));
+
     }
 }
