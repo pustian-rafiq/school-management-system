@@ -10,7 +10,7 @@ class UserController extends Controller
     //Fetch all users
 
     public function ViewUser(){
-        $users = User::all();
+        $users = User::latest()->get();
         return view('backend.user.view_user', compact('users'));
     }
     //Show user add form
@@ -38,7 +38,7 @@ class UserController extends Controller
 
         $notification = array(
             'message' => 'User added successfully',
-            'alert-type' => 'success',
+            'alert-type' => 'success'
         );
         return redirect()->route('user.view');
     }
@@ -49,5 +49,17 @@ class UserController extends Controller
 
         return view('backend.user.edit_user', compact('editUser'));
 
+    }
+
+    // Update the user 
+    public function UpdateUser(Request $request,$id){
+        $data = User::find($id);
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->user_type = $request->user_type;
+
+        $data->save();
+        return redirect()->route('user.view');
     }
 }
