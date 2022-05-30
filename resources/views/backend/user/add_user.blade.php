@@ -15,16 +15,16 @@
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form novalidate>
+               <form  method="post" action="{{ route('user.store')}}">
+                @csrf
                     <div class="row">
                         <div class="col-6"> 
                             <div class="form-group">
                                 <h5>Select Role <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="select" id="select" required class="form-control">
-                                        <option value="">Select Your City</option>
-                                        <option value="1">Admin</option>
-                                        <option value="2">User</option>
+                                    <select name="user_type" id="select" required class="form-control">
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
                                     </select>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <h5>Username <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your username">
+                                    <input type="text" name="name" class="form-control" required  placeholder="Enter your username">
                                  </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <h5>User Email <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="email" name="email" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your email"> 
+                                    <input type="email" name="email" class="form-control" required   placeholder="Enter your email"> 
                                 </div>
                             </div>
                         </div>
@@ -55,14 +55,14 @@
                             <div class="form-group">
                                 <h5>User Password <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="password" name="password" class="form-control" required data-validation-required-message="This field is required" placeholder="Enter your password">
+                                    <input type="password" name="password" class="form-control" required   placeholder="Enter your password">
                                 </div>
                             </div>  
                         </div>
                     </div>
                         
                         <div class="text-xs-right">
-                            <button type="submit" class="btn btn-rounded btn-info">Submit</button>
+                            <button type="submit" class="btn btn-rounded btn-info">Save</button>
                         </div>
                 </form>
 
