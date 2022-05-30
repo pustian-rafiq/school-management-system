@@ -62,4 +62,11 @@ class UserController extends Controller
         $data->save();
         return redirect()->route('user.view');
     }
+    // Delete the user 
+    public function DeleteUser($id){
+        $data = User::find($id);
+
+      $data->delete();
+        return redirect()->route('user.view');
+    }
 }
