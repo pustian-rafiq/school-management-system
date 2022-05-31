@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +41,10 @@ Route::prefix('users')->group(function () {
     Route::get('/edit/{id}', [UserController::class,'EditUser'])->name('user.edit');
     Route::post('/update/{id}', [UserController::class,'UpdateUser'])->name('user.update');
     Route::get('/delete/{id}', [UserController::class,'DeleteUser'])->name('user.delete');
+});
+
+
+//Users profile manage routes here 
+Route::prefix('profile')->group(function () {
+    Route::get('/view', [ProfileController::class,'ViewProfile'])->name('profile.view');
 });
