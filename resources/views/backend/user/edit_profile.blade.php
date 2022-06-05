@@ -7,15 +7,15 @@
 
     <!-- Basic Forms -->
      <div class="box">
-       <div class="box-header with-border">
+       {{-- <div class="box-header with-border">
          <h4 class="box-title">Edit User</h4>
          <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('user.add')}}">Add User</a>
-       </div>
+       </div> --}}
        <!-- /.box-header -->
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form  method="post" action="{{ route('user.update',$editUser->id) }}">
+               <form  method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                 @csrf
                     <div class="row">
                        
@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <h5>Phone No <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="mobile" class="form-control" required value="{{ $editUser->email }}" > 
+                                    <input type="text" name="mobile" class="form-control" required value="{{ $editUser->mobile }}" > 
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <h5>Gender <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <select name="user_type" id="select" required class="form-control">
+                                <select name="gender" id="select" required class="form-control">
                                     <option value="">Select gender</option>
                                     <option value="Male" {{($editUser->gender == 'Male') ? 'selected' : ''}}>Male</option>
                                     <option value="Female"  {{($editUser->gender == 'Female') ? 'selected' : ''}}>Female</option>
@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <h5>User Image <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input id="image" type="file" name="image" class="form-control" required value="{{ $editUser->image }}" > 
+                                    <input id="image" type="file" name="image" class="form-control"  value="{{ $editUser->image }}" > 
                                 </div>
                             </div>
                             {{-- show image preview --}}
@@ -91,7 +91,7 @@
                     </div>
                         
                         <div class="text-xs-right">
-                            <button type="submit" class="btn btn-rounded btn-info">Save</button>
+                            <button type="submit" class="btn btn-rounded btn-info">Update</button>
                         </div>
                 </form>
 
