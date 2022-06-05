@@ -47,5 +47,5 @@ Route::prefix('users')->group(function () {
 //Users profile manage routes here 
 Route::prefix('profile')->group(function () {
     Route::get('/view', [ProfileController::class,'ViewProfile'])->name('profile.view');
-    Route::get('/update', [ProfileController::class,'ViewProfile'])->name('profile.update');
+    Route::get('/edit', [ProfileController::class,'EditProfile'])->name('profile.edit');
 });

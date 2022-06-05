@@ -9,7 +9,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-black" style="background: url('../images/gallery/full/10.jpg') center center;">
               <h4 class="widget-user-username  ">User Name: {{ $user->name }}</h4>
-              <a href="{{ route('profile.update') }}" class="btn btn-success" style="float: right">Update Profile</a>
+              <a href="{{ route('profile.edit') }}" class="btn btn-success" style="float: right">Edit Profile</a>
               <h6 class="widget-user-desc">User Type: {{ $user->user_type }}</h6>
               <h6 class="widget-user-desc">Email: {{ $user->email }}</h6>
               {{-- <h6 class="widget-user-desc">Designer</h6> --}}
@@ -22,7 +22,7 @@
                 <div class="col-sm-4">
                   <div class="description-block">
                     <h5 class="description-header">Mobile No</h5>
-                    {{-- <span class="description-text">FOLLOWERS</span> --}}
+                    <span class="description-text">{{ $user->mobile }}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -30,7 +30,7 @@
                 <div class="col-sm-4 br-1 bl-1">
                   <div class="description-block">
                     <h5 class="description-header">Address</h5>
-                    {{-- <span class="description-text">FOLLOWERS</span> --}}
+                    <span class="description-text">{{ $user->address }}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -38,7 +38,7 @@
                 <div class="col-sm-4">
                   <div class="description-block">
                     <h5 class="description-header">Gender</h5>
-                    {{-- <span class="description-text">TWEETS</span> --}}
+                    <span class="description-text">{{ $user->gender }}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
