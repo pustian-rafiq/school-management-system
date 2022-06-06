@@ -19,7 +19,7 @@ class StudentClassController extends Controller
         return view('backend.setup.class.add_class');
     }
 
-    //Store new student
+    //Store new student class
     public function StoreStudentClass(Request $request){
       
         $validateData = $request->validate([
@@ -37,5 +37,26 @@ class StudentClassController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('student.class.view')->with($notification);
+    }
+
+    //Edit student class show
+    public function EditStudentClass($id){
+      
+       $student = StudentClass::find($id);
+        return view('backend.setup.class.edit_class', compact('student'));
+    }
+    //Update student class
+    public function UpdateStudentClass(Request $request,$id){
+      
+       $student = StudentClass::find($id);
+       $student->name = $request->name;
+       
+       $student->save();
+       
+       $notification = array(
+        'message' => 'Student updated successfully',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('student.class.view')->with($notification);
     }
 }
