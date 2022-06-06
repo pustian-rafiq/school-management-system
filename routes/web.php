@@ -57,4 +57,8 @@ Route::prefix('profile')->group(function () {
 //Setup routes here 
 Route::prefix('setups')->group(function () {
     Route::get('/student/class/view', [StudentClassController::class,'ViewStudentClass'])->name('student.class.view');
+    Route::get('/student/class/add', [StudentClassController::class,'AddStudentClass'])->name('student.class.add');
+    Route::post('/student/class/store', [StudentClassController::class,'StoreStudentClass'])->name('student.class.store');
+    Route::get('/student/class/edit/{id}', [StudentClassController::class,'ViewStudentClass'])->name('student.class.edit');
+    Route::get('/student/class/delete/{id}', [StudentClassController::class,'ViewStudentClass'])->name('student.class.delete');
 });

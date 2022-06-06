@@ -70,7 +70,7 @@ $route = Route::current()->getName();
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
-            <li><a href="{{ route('password.change') }}" ><i class="ti-more"></i>Change Password</a></li>
+            {{-- <li><a href="{{ route('student.class.add') }}" ><i class="ti-more"></i>Change Password</a></li> --}}
           </ul>
         </li>
 		

@@ -13,4 +13,29 @@ class StudentClassController extends Controller
         $students = StudentClass::latest()->get();
         return view('backend.setup.class.view_class',compact('students'));
     }
+
+    //Show student add form
+    public function AddStudentClass(){
+        return view('backend.setup.class.add_class');
+    }
+
+    //Store new student
+    public function StoreStudentClass(Request $request){
+      
+        $validateData = $request->validate([
+            'name' => 'required|unique:student_classes,name',
+        ]);
+
+        $data = new StudentClass();
+
+        $data->name = $request->name;
+
+        $data->save();
+
+        $notification = array(
+            'message' => 'New student added successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('student.class.view')->with($notification);
+    }
 }

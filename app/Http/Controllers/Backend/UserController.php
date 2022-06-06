@@ -40,7 +40,7 @@ class UserController extends Controller
             'message' => 'User added successfully',
             'alert-type' => 'success'
         );
-        return redirect()->route('user.view');
+        return redirect()->route('user.view')->with($notification);
     }
 
 
