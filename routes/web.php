@@ -78,5 +78,5 @@ Route::prefix('setups')->group(function () {
     // Student class routes here
     Route::get('/student/group/view', [StudentGroupController::class,'ViewStudentGroup'])->name('student.group.view');
     Route::get('/student/group/add', [StudentGroupController::class,'AddStudentGroup'])->name('student.group.add');
-     
+    Route::post('/student/group/store', [StudentGroupController::class,'StoreStudentGroup'])->name('student.group.store');
 });
