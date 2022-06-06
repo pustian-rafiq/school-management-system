@@ -61,5 +61,5 @@ Route::prefix('setups')->group(function () {
     Route::post('/student/class/store', [StudentClassController::class,'StoreStudentClass'])->name('student.class.store');
     Route::get('/student/class/edit/{id}', [StudentClassController::class,'EditStudentClass'])->name('student.class.edit');
     Route::post('/student/class/update/{id}', [StudentClassController::class,'UpdateStudentClass'])->name('student.class.update');
-    Route::get('/student/class/delete/{id}', [StudentClassController::class,'ViewStudentClass'])->name('student.class.delete');
+    Route::get('/student/class/delete/{id}', [StudentClassController::class,'DeleteStudentClass'])->name('student.class.delete');
 });

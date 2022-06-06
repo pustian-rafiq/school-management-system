@@ -26,6 +26,9 @@
                                 <div class="controls">
                                     <input type="text" name="name" class="form-control" required   placeholder="Enter your class name"> 
                                 </div>
+                                @error('name') 
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>                    
                     </div>

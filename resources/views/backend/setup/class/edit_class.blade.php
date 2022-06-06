@@ -23,8 +23,11 @@
                             <div class="form-group">
                                 <h5>Class Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required  value="{{ $student->name }}" > 
+                                    <input type="text" name="name" class="form-control"   value="{{ $student->name }}" > 
                                 </div>
+                                @error('name') 
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>                    
                     </div>

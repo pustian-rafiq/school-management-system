@@ -49,12 +49,34 @@ class StudentClassController extends Controller
     public function UpdateStudentClass(Request $request,$id){
       
        $student = StudentClass::find($id);
+
+       $validateData = $request->validate([
+        'name' => 'required|unique:student_classes,name,'.$student->id
+    ]);
+
+
        $student->name = $request->name;
        
        $student->save();
-       
+
        $notification = array(
         'message' => 'Student updated successfully',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('student.class.view')->with($notification);
+    }
+
+
+    //Delete student class
+    public function DeleteStudentClass($id){
+      
+       $student = StudentClass::find($id);
+       $student->delete();
+       
+  
+
+       $notification = array(
+        'message' => 'Student deleted successfully',
         'alert-type' => 'success'
     );
     return redirect()->route('student.class.view')->with($notification);

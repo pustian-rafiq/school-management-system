@@ -38,6 +38,9 @@
                                 <div class="controls">
                                     <input type="text" name="name" class="form-control" required  placeholder="Enter your username">
                                  </div>
+                                 @error('name') 
+                                 <span class="text-danger">{{ $message }}</span>
+                                 @enderror
                             </div>
                         </div>
                     </div>
@@ -49,6 +52,9 @@
                                 <div class="controls">
                                     <input type="email" name="email" class="form-control" required   placeholder="Enter your email"> 
                                 </div>
+                                @error('email') 
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -58,6 +64,7 @@
                                 <div class="controls">
                                     <input type="password" name="password" class="form-control" required   placeholder="Enter your password">
                                 </div>
+                               
                             </div>  
                         </div>
                     </div>
