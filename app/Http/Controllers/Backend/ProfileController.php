@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -54,7 +55,35 @@ class ProfileController extends Controller
     }
 
     //Change password
-    public function UpdatePassword(){
+    public function ChnagePassword(){
+        return view('backend.user.edit_password');
+    }
+
+    //Update password
+    public function UpdatePassword(Request $request){
+        $validateData = $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+
+        $hashedPassword = Auth::user()->password;
+ return dd($hashedPassword);
+        if(Hash::check($request->current_password, $hashedPassword)){
+            $user = User::find(Auth::id());
+            $user->password = Hash::make($request->password);
+            $user->save();
+            Auth::logout();
+
+            $notification = array(
+                'message' => 'Your password has been changed successfully',
+                'alert-type' => 'success'
+            );
+
+            
+            return redirect()->route('login')->with($notification);
+        }else{
+            return redirect()->back();
+        }
         return view('backend.user.edit_password');
     }
 }
