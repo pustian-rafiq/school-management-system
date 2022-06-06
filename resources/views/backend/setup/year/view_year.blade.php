@@ -7,8 +7,8 @@
       <div class="col-12">
         <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Student Class Table</h3>
-              <a href="{{ route('student.class.add')}}" class="btn btn-success btn-rounded mb-5" style="float:right">Add Student Class</a>
+              <h3 class="box-title">Student Year Table</h3>
+              <a href="{{ route('student.year.add')}}" class="btn btn-success btn-rounded mb-5" style="float:right">Add Student Year</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -23,13 +23,13 @@
                     </thead>
                     <tbody>
 
-                       @foreach($studentClasses as $key => $student)
+                       @foreach($years as $key => $year)
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
-                            <td>{{$student->name }}</td>
+                            <td>{{$year->name }}</td>
                             <td style="width: 20%">
-                              <a href="{{ route('student.class.edit',$student->id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.class.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              <a href="{{ route('student.year.edit',$year->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.year.delete',$year->id) }}" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
                           @endforeach 

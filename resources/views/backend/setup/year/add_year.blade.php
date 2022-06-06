@@ -8,22 +8,23 @@
     <!-- Basic Forms -->
      <div class="box">
        <div class="box-header with-border">
-         <h4 class="box-title">Edit Student Class</h4>
-         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.class.view')}}">Back </a> 
+         <h4 class="box-title">Add Student Year</h4>
+         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.year.view')}}">View Student Years </a> 
        </div>
        <!-- /.box-header -->
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form  method="post" action="{{ route('student.class.update',$studentClass->id)}}">
+               <form  method="post" action="{{ route('student.year.store')}}">
                 @csrf
-                  
+                   
+
                     <div class="row">
                         <div class="col-6">		
                             <div class="form-group">
-                                <h5>Class Name <span class="text-danger">*</span></h5>
+                                <h5>Year Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control"   value="{{ $studentClass->name }}" > 
+                                    <input type="text" name="name" class="form-control" required   placeholder="Enter your year name"> 
                                 </div>
                                 @error('name') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -33,7 +34,7 @@
                     </div>
                         
                         <div class="text-xs-right">
-                            <button type="submit" class="btn btn-rounded btn-info">Update</button>
+                            <button type="submit" class="btn btn-rounded btn-info">Save</button>
                         </div>
                 </form>
 

@@ -9,7 +9,7 @@
      <div class="box">
        <div class="box-header with-border">
          <h4 class="box-title">Add Student Class</h4>
-         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.class.view')}}">View Students </a> 
+         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.class.view')}}">View Student Class </a> 
        </div>
        <!-- /.box-header -->
        <div class="box-body">

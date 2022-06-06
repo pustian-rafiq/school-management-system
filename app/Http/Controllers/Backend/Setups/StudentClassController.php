@@ -10,8 +10,8 @@ class StudentClassController extends Controller
 {
     //fetch all class
     public function ViewStudentClass(){
-        $students = StudentClass::latest()->get();
-        return view('backend.setup.class.view_class',compact('students'));
+        $studentClasses = StudentClass::latest()->get();
+        return view('backend.setup.class.view_class',compact('studentClasses'));
     }
 
     //Show student add form
@@ -42,25 +42,25 @@ class StudentClassController extends Controller
     //Edit student class show
     public function EditStudentClass($id){
       
-       $student = StudentClass::find($id);
+       $studentClass = StudentClass::find($id);
         return view('backend.setup.class.edit_class', compact('student'));
     }
     //Update student class
     public function UpdateStudentClass(Request $request,$id){
       
-       $student = StudentClass::find($id);
+       $studentClass = StudentClass::find($id);
 
        $validateData = $request->validate([
-        'name' => 'required|unique:student_classes,name,'.$student->id
+        'name' => 'required|unique:student_classes,name,'.$studentClass->id
     ]);
 
 
-       $student->name = $request->name;
+       $studentClass->name = $request->name;
        
-       $student->save();
+       $studentClass->save();
 
        $notification = array(
-        'message' => 'Student updated successfully',
+        'message' => 'Student class updated successfully',
         'alert-type' => 'success'
     );
     return redirect()->route('student.class.view')->with($notification);
@@ -70,13 +70,13 @@ class StudentClassController extends Controller
     //Delete student class
     public function DeleteStudentClass($id){
       
-       $student = StudentClass::find($id);
-       $student->delete();
+       $studentClass = StudentClass::find($id);
+       $studentClass->delete();
        
   
 
        $notification = array(
-        'message' => 'Student deleted successfully',
+        'message' => 'Student class deleted successfully',
         'alert-type' => 'success'
     );
     return redirect()->route('student.class.view')->with($notification);
