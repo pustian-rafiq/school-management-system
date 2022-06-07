@@ -17,7 +17,7 @@ class StudentGroupController extends Controller
       //Show student group add form
       public function AddStudentGroup(){
         return view('backend.setup.group.add_group');
-    }
+       }
 
       //Store new student group
       public function StoreStudentGroup(Request $request){
