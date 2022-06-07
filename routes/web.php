@@ -97,4 +97,7 @@ Route::prefix('setups')->group(function () {
        Route::get('/student/fee/category/view', [StudentFeeCategoryController::class,'ViewStudentFeeCategory'])->name('student.fee.category.view');
        Route::get('/student/fee/category/add', [StudentFeeCategoryController::class,'AddStudentFeeCategory'])->name('student.fee.category.add');
        Route::post('/student/fee/category/store', [StudentFeeCategoryController::class,'StoreStudentFeeCategory'])->name('student.fee.category.store');
+       Route::get('/student/fee/category/edit/{id}', [StudentFeeCategoryController::class,'EditStudentFeeCategory'])->name('student.fee.category.edit');
+       Route::post('/student/fee/category/update/{id}', [StudentFeeCategoryController::class,'UpdateStudentFeeCategory'])->name('student.fee.category.update');
+       Route::get('/student/fee/category/delete/{id}', [StudentFeeCategoryController::class,'DeleteStudentFeeCategory'])->name('student.fee.category.delete');
 });
