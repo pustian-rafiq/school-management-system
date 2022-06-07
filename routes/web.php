@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Setups\StudentClassController;
 use App\Http\Controllers\Backend\Setups\StudentYearController;
 use App\Http\Controllers\Backend\Setups\StudentGroupController;
 use App\Http\Controllers\Backend\Setups\StudentShiftController;
+use App\Http\Controllers\Backend\Setups\StudentFeeCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,4 +92,8 @@ Route::prefix('setups')->group(function () {
       Route::get('/student/shift/edit/{id}', [StudentShiftController::class,'EditStudentShift'])->name('student.shift.edit');
       Route::post('/student/shift/update/{id}', [StudentShiftController::class,'UpdateStudentShift'])->name('student.shift.update');
       Route::get('/student/shift/delete/{id}', [StudentShiftController::class,'DeleteStudentShift'])->name('student.shift.delete');
+
+       // Student fee category routes here
+       Route::get('/student/fee/category/view', [StudentFeeCategoryController::class,'ViewStudentFeeCategory'])->name('student.fee.category.view');
+       Route::get('/student/fee/category/add', [StudentFeeCategoryController::class,'AddStudentFeeCategory'])->name('student.fee.category.add');
 });
