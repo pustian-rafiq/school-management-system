@@ -87,5 +87,8 @@ Route::prefix('setups')->group(function () {
       // Student shift routes here
       Route::get('/student/shift/view', [StudentShiftController::class,'ViewStudentShift'])->name('student.shift.view');
       Route::get('/student/shift/add', [StudentShiftController::class,'AddStudentShift'])->name('student.shift.add');
-      Route::post('/student/grshiftoup/store', [StudentShiftController::class,'StoreStudentShift'])->name('student.shift.store');
+      Route::post('/student/shift/store', [StudentShiftController::class,'StoreStudentShift'])->name('student.shift.store');
+      Route::get('/student/shift/edit/{id}', [StudentShiftController::class,'EditStudentShift'])->name('student.shift.edit');
+      Route::post('/student/shift/update/{id}', [StudentShiftController::class,'UpdateStudentShift'])->name('student.shift.update');
+      Route::get('/student/shift/delete/{id}', [StudentShiftController::class,'DeleteStudentShift'])->name('student.shift.delete');
 });

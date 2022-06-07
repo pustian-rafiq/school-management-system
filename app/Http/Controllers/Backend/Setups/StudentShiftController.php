@@ -19,7 +19,7 @@ class StudentShiftController extends Controller
         return view('backend.setup.shift.add_shift');
        }
 
-      //Store new student group
+      //Store new student shift
       public function StoreStudentShift(Request $request){
       
         $validateData = $request->validate([
@@ -38,4 +38,46 @@ class StudentShiftController extends Controller
         );
         return redirect()->route('student.shift.view')->with($notification);
     }
+
+    //Edit student shift  
+    public function EditStudentShift($id){
+      
+        $shift = StudentShift::find($id);
+         return view('backend.setup.shift.edit_shift', compact('shift'));
+     }
+     //Update student shift
+     public function UpdateStudentShift(Request $request,$id){
+       
+        $shift = StudentShift::find($id);
+ 
+        $validateData = $request->validate([
+         'name' => 'required|unique:student_shifts,name,'.$shift->id
+     ]);
+ 
+ 
+        $shift->name = $request->name;
+        
+        $shift->save();
+ 
+        $notification = array(
+         'message' => 'Student shift updated successfully',
+         'alert-type' => 'success'
+     );
+     return redirect()->route('student.shift.view')->with($notification);
+     }
+ 
+ 
+     //Delete student shift
+     public function DeleteStudentShift($id){
+       
+        $studentShift = StudentShift::find($id);
+        $studentShift->delete();
+        
+        $notification = array(
+         'message' => 'Student shift deleted successfully',
+         'alert-type' => 'success'
+     );
+     return redirect()->route('student.shift.view')->with($notification);
+     }
+
 }
