@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setups\StudentClassController;
 use App\Http\Controllers\Backend\Setups\StudentYearController;
 use App\Http\Controllers\Backend\Setups\StudentGroupController;
+use App\Http\Controllers\Backend\Setups\StudentShiftController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,11 +76,15 @@ Route::prefix('setups')->group(function () {
     Route::post('/student/year/update/{id}', [StudentYearController::class,'UpdateStudentYear'])->name('student.year.update');
     Route::get('/student/year/delete/{id}', [StudentYearController::class,'DeleteStudentYear'])->name('student.year.delete');
 
-    // Student class routes here
+    // Student group routes here
     Route::get('/student/group/view', [StudentGroupController::class,'ViewStudentGroup'])->name('student.group.view');
     Route::get('/student/group/add', [StudentGroupController::class,'AddStudentGroup'])->name('student.group.add');
     Route::post('/student/group/store', [StudentGroupController::class,'StoreStudentGroup'])->name('student.group.store');
     Route::get('/student/group/edit/{id}', [StudentGroupController::class,'EditStudentGroup'])->name('student.group.edit');
     Route::post('/student/group/update/{id}', [StudentGroupController::class,'UpdateStudentGroup'])->name('student.group.update');
     Route::get('/student/group/delete/{id}', [StudentGroupController::class,'DeleteStudentGroup'])->name('student.group.delete');
+
+      // Student shift routes here
+      Route::get('/student/shift/view', [StudentShiftController::class,'ViewStudentShift'])->name('student.shift.view');
+      Route::get('/student/shift/add', [StudentShiftController::class,'AddStudentShift'])->name('student.shift.add');
 });
