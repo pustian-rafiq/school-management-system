@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Setups\StudentYearController;
 use App\Http\Controllers\Backend\Setups\StudentGroupController;
 use App\Http\Controllers\Backend\Setups\StudentShiftController;
 use App\Http\Controllers\Backend\Setups\StudentFeeCategoryController;
+use App\Http\Controllers\Backend\Setups\StudentFeeAmountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,4 +101,9 @@ Route::prefix('setups')->group(function () {
        Route::get('/student/fee/category/edit/{id}', [StudentFeeCategoryController::class,'EditStudentFeeCategory'])->name('student.fee.category.edit');
        Route::post('/student/fee/category/update/{id}', [StudentFeeCategoryController::class,'UpdateStudentFeeCategory'])->name('student.fee.category.update');
        Route::get('/student/fee/category/delete/{id}', [StudentFeeCategoryController::class,'DeleteStudentFeeCategory'])->name('student.fee.category.delete');
+
+        // Student fee amount routes here
+        Route::get('/student/fee/amount/view', [StudentFeeAmountController::class,'ViewStudentFeeAmount'])->name('student.fee.amount.view');
+        Route::get('/student/fee/amount/add', [StudentFeeAmountController::class,'AddStudentFeeAmount'])->name('student.fee.amount.add');
+        Route::post('/student/fee/amount/store', [StudentFeeAmountController::class,'StoreStudentFeeAmount'])->name('student.fee.amount.store');
 });
