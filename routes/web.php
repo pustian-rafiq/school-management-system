@@ -96,4 +96,5 @@ Route::prefix('setups')->group(function () {
        // Student fee category routes here
        Route::get('/student/fee/category/view', [StudentFeeCategoryController::class,'ViewStudentFeeCategory'])->name('student.fee.category.view');
        Route::get('/student/fee/category/add', [StudentFeeCategoryController::class,'AddStudentFeeCategory'])->name('student.fee.category.add');
+       Route::post('/student/fee/category/store', [StudentFeeCategoryController::class,'StoreStudentFeeCategory'])->name('student.fee.category.store');
 });
