@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <h5>Shift Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required   placeholder="Enter your shift name"> 
+                                    <input type="text" name="name" class="form-control"  placeholder="Enter your shift name"> 
                                 </div>
                                 @error('name') 
                                 <span class="text-danger">{{ $message }}</span>

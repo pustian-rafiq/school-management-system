@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <h5>Year Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required   placeholder="Enter your year name"> 
+                                    <input type="text" name="name" class="form-control" placeholder="Enter your year name"> 
                                 </div>
                                 @error('name') 
                                 <span class="text-danger">{{ $message }}</span>
