@@ -12,7 +12,9 @@ class StudentFeeAmountController extends Controller
 {
      //fetch all fee amounts
      public function ViewStudentFeeAmount(){
-        $feeAmounts = StudentFeeAmount::latest()->get();
+        // $feeAmounts = StudentFeeAmount::latest()->get();
+
+        $feeAmounts = StudentFeeAmount::select('fee_category_id')->groupBy('fee_category_id')->get();
         return view('backend.setup.fee_amount.view_fee_amount',compact('feeAmounts'));
     }
 

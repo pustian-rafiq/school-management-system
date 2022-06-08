@@ -18,8 +18,8 @@
                         <tr>
                           <th>SL No</th>
                           <th>Fee Category</th>
-                          <th>Student Class</th>
-                          <th>Amount</th>
+                          {{-- <th>Student Class</th>
+                          <th>Amount</th> --}}
                           <th>Action</th>
                         </tr>
                     </thead>
@@ -28,12 +28,13 @@
                        @foreach($feeAmounts as $key => $feeAmount)
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
-                            <td>{{$feeAmount->fee_category_id }}</td>
-                            <td>{{$feeAmount->class_id }}</td>
-                            <td>{{$feeAmount->amount }}</td>
+                            <td>{{$feeAmount->fee_category->name }}</td>
+                            {{-- <td>{{$feeAmount['fee_category']['name'] }}</td> --}}
+                            {{-- <td>{{$feeAmount->class_id }}</td>
+                            <td>{{$feeAmount->amount }}</td> --}}
                             <td style="width: 20%">
-                              <a href="{{ route('student.fee.category.edit',$feeAmount->id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.fee.category.delete',$feeAmount->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              {{-- <a href="{{ route('student.fee.category.edit',$feeAmount->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.fee.category.delete',$feeAmount->id) }}" class="btn btn-danger" id="delete">Delete</a> --}}
                             </td>
                         </tr>
                           @endforeach 
@@ -42,8 +43,8 @@
                         <tr>
                           <th>SL No</th>
                           <th>Fee Category</th>
-                          <th>Student Class</th>
-                          <th>Amount</th>
+                          {{-- <th>Student Class</th>
+                          <th>Amount</th> --}}
                           <th>Action</th>
                         </tr>
                     </tfoot>
