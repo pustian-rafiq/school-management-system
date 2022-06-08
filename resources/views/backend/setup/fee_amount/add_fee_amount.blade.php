@@ -18,12 +18,13 @@
                <form  method="post" action="{{ route('student.fee.amount.store')}}">
                 @csrf
                 <div class="add_item"> <!--after clicking pluc icon add_item is added in the form -->
+
                     <div class="row">
                       <div class="col-md-12 "> 
                         <div class="form-group">
                             <h5>Select Fee Category <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <select name="fee_category" id="select" required class="form-control">
+                                <select name="fee_category_id" id="select" required class="form-control">
                                     <option value="">Select a category</option>
                                     @foreach($fee_categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -60,9 +61,9 @@
                             <div class="form-group">
                                 <h5>Fee Amount <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name[]" class="form-control"   placeholder="Enter your fee amount"> 
+                                    <input type="text" name="amount[]" class="form-control"   placeholder="Enter your fee amount"> 
                                 </div>
-                                @error('name') 
+                                @error('amount') 
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -114,7 +115,7 @@
               <div class="form-group">
                   <h5>Fee Amount <span class="text-danger">*</span></h5>
                   <div class="controls">
-                      <input type="text" name="name[]" class="form-control"   placeholder="Enter your fee amount"> 
+                      <input type="text" name="amount[]" class="form-control"   placeholder="Enter your fee amount"> 
                   </div>
                   @error('name') 
                   <span class="text-danger">{{ $message }}</span>
@@ -141,7 +142,7 @@
        })
 
        $(document).on('click',".removeeventmore",function(){
-        var delete_whole_extra_item_add = $('#delete_whole_extra_item_add').html();
+        //var delete_whole_extra_item_add = $('#delete_whole_extra_item_add').html();
         $(this).closest('.delete_whole_extra_item_add').remove();
         counter -= 1;
        })
