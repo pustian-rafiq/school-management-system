@@ -8,14 +8,14 @@
     <!-- Basic Forms -->
      <div class="box">
        <div class="box-header with-border">
-         <h4 class="box-title">Add Student Fee Amount</h4>
+         <h4 class="box-title">Edit Student Fee Amount</h4>
          <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.fee.amount.view')}}">View Fee Amount</a> 
        </div>
        <!-- /.box-header -->
        <div class="box-body">
          <div class="row">
            <div class="col-md-12">
-               <form  method="post" action="{{ route('student.fee.amount.store')}}">
+               <form  method="post" action="{{ route('student.fee.amount.update',$editData['0']->fee_category_id)}}">
                 @csrf
                 <div class="add_item"> <!--after clicking pluc icon add_item is added in the form -->
 
@@ -27,7 +27,9 @@
                                 <select name="fee_category_id" id="select" required class="form-control">
                                     <option value="">Select a category</option>
                                     @foreach($fee_categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ ($editData['0']->fee_category_id == $category->id) ? ' selected="selected"' : '' }}>
+                                      {{ $category->name }}
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -39,7 +41,8 @@
                       </div>       
                     </div>
 
-                    
+                    @foreach ($editData as $data)
+                    <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
                    <div class="row">
                       <div class="col-md-5"> 
                           <div class="form-group">
@@ -48,7 +51,9 @@
                                   <select name="class_id[]" id="select" required class="form-control">
                                       <option value="">Select a class</option>
                                       @foreach($classes as $class)
-                                      <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                      <option value="{{ $class->id }}" {{ ($data->class_id == $class->id) ? ' selected="selected"' : '' }}>
+                                        {{ $class->name }}
+                                      </option>
                                       @endforeach
                                   </select>
                               </div>
@@ -62,7 +67,7 @@
                             <div class="form-group">
                                 <h5>Fee Amount <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="amount[]" class="form-control"   placeholder="Enter your fee amount"> 
+                                    <input type="text" name="amount[]" class="form-control" value="{{ $data->amount }}"> 
                                 </div>
                                 @error('amount') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -71,12 +76,16 @@
                         </div>    
                         <div class="col-md-2" style="padding-top:25px">	
                           <span><i class="fa fa-plus-circle  btn btn-success addeventmore"></i></span>
+                          <span><i class="fa fa-minus-circle  btn btn-danger removeeventmore"></i></span>
                         </div>                
                    </div>
+                    </div>
+                   @endforeach
+
                 </div> <!--End add_item-->
                    
                         <div class="text-xs-right">
-                            <button type="submit" class="btn btn-rounded btn-info">Save</button>
+                            <button type="submit" class="btn btn-rounded btn-info">Update</button>
                        </div>
                 </form>
 

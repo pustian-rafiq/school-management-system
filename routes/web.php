@@ -106,4 +106,8 @@ Route::prefix('setups')->group(function () {
         Route::get('/student/fee/amount/view', [StudentFeeAmountController::class,'ViewStudentFeeAmount'])->name('student.fee.amount.view');
         Route::get('/student/fee/amount/add', [StudentFeeAmountController::class,'AddStudentFeeAmount'])->name('student.fee.amount.add');
         Route::post('/student/fee/amount/store', [StudentFeeAmountController::class,'StoreStudentFeeAmount'])->name('student.fee.amount.store');
+        Route::get('/student/fee/amount/edit/{id}', [StudentFeeAmountController::class,'EditStudentFeeAmount'])->name('student.fee.amount.edit');
+        Route::post('/student/fee/amount/update/{id}', [StudentFeeAmountController::class,'UpdateStudentFeeAmount'])->name('student.fee.amount.update');
+        Route::get('/student/fee/amount/details/{id}', [StudentFeeAmountController::class,'DetailsStudentFeeAmount'])->name('student.fee.amount.details');
+        // Route::get('/student/fee/amount/delete/{id}', [StudentFeeAmountController::class,'DeleteStudentFeeAmount'])->name('student.fee.amount.delete');
 });
