@@ -38,4 +38,43 @@ class SchoolSubjectController extends Controller
         return redirect()->route('school.subject.view')->with($notification);
     }
 
+     //Edit school subject  
+     public function EditSchoolSubject($id){
+      
+        $subject = SchoolSubject::find($id);
+         return view('backend.setup.school_subject.edit_school_subject', compact('subject'));
+     }
+
+      //Update subject
+      public function UpdateSchoolSubject(Request $request,$id){
+       
+        $subject = SchoolSubject::find($id);
+ 
+        $validateData = $request->validate([
+         'name' => 'required|unique:school_subjects,name,'.$subject->id
+     ]);
+     $subject->name = $request->name;
+        
+     $subject->save();
+
+     $notification = array(
+      'message' => 'Subject updated successfully',
+      'alert-type' => 'success'
+  );
+  return redirect()->route('school.subject.view')->with($notification);
+  }
+
+    //Delete subject
+    public function DeleteSchoolSubject($id){
+       
+        $subject = SchoolSubject::find($id);
+        $subject->delete();
+        
+        $notification = array(
+         'message' => 'Subject deleted successfully',
+         'alert-type' => 'success'
+     );
+     return redirect()->route('school.subject.view')->with($notification);
+     }
+
 }

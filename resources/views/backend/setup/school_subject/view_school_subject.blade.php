@@ -28,8 +28,8 @@
                             <td style="width: 10%">{{ ++$key }}</td>
                             <td>{{$subject->name }}</td>
                             <td style="width: 20%">
-                              <a href="{{ route('exam.type.edit',$subject->id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('exam.type.delete',$subject->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              <a href="{{ route('school.subject.edit',$subject->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('school.subject.delete',$subject->id) }}" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
                           @endforeach 
