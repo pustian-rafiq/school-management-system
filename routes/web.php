@@ -116,4 +116,7 @@ Route::prefix('setups')->group(function () {
         Route::get('/exam/type/view', [ExamTypeCOntroller::class,'ViewExamType'])->name('exam.type.view');
         Route::get('/exam/type/add', [ExamTypeCOntroller::class,'AddExamType'])->name('exam.type.add');
         Route::post('/exam/type/store', [ExamTypeCOntroller::class,'StoreExamType'])->name('exam.type.store');
+        Route::get('/exam/type/edit/{id}', [ExamTypeCOntroller::class,'EditExamType'])->name('exam.type.edit');
+        Route::post('/exam/type/update/{id}', [ExamTypeCOntroller::class,'UpdateExamType'])->name('exam.type.update');
+        Route::get('/exam/type/delete/{id}', [ExamTypeCOntroller::class,'DeleteExamType'])->name('exam.type.delete');
 });
