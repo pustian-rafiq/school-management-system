@@ -115,4 +115,5 @@ Route::prefix('setups')->group(function () {
         // Student exam type routes here
         Route::get('/exam/type/view', [ExamTypeCOntroller::class,'ViewExamType'])->name('exam.type.view');
         Route::get('/exam/type/add', [ExamTypeCOntroller::class,'AddExamType'])->name('exam.type.add');
+        Route::post('/exam/type/store', [ExamTypeCOntroller::class,'StoreExamType'])->name('exam.type.store');
 });
