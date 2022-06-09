@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Setups\StudentGroupController;
 use App\Http\Controllers\Backend\Setups\StudentShiftController;
 use App\Http\Controllers\Backend\Setups\StudentFeeCategoryController;
 use App\Http\Controllers\Backend\Setups\StudentFeeAmountController;
+use App\Http\Controllers\Backend\Setups\ExamTypeCOntroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,4 +111,8 @@ Route::prefix('setups')->group(function () {
         Route::post('/student/fee/amount/update/{id}', [StudentFeeAmountController::class,'UpdateStudentFeeAmount'])->name('student.fee.amount.update');
         Route::get('/student/fee/amount/details/{id}', [StudentFeeAmountController::class,'DetailsStudentFeeAmount'])->name('student.fee.amount.details');
         // Route::get('/student/fee/amount/delete/{id}', [StudentFeeAmountController::class,'DeleteStudentFeeAmount'])->name('student.fee.amount.delete');
+
+        // Student exam type routes here
+        Route::get('/exam/type/view', [ExamTypeCOntroller::class,'ViewExamType'])->name('exam.type.view');
+        Route::get('/exam/type/add', [ExamTypeCOntroller::class,'AddExamType'])->name('exam.type.add');
 });
