@@ -18,11 +18,11 @@
                <form  method="post" action="{{ route('exam.type.store')}}">
                 @csrf
                     <div class="row">
-                        <div class="col-6">		
+                        <div class="col-12">		
                             <div class="form-group">
                                 <h5>Exam Type Name<span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" required   placeholder="Enter your exam type name"> 
+                                    <input type="text" name="name" class="form-control"  placeholder="Enter your exam type name"> 
                                 </div>
                                 @error('name') 
                                 <span class="text-danger">{{ $message }}</span>
