@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setups\AsignSubjectController;
 use App\Http\Controllers\Backend\Setups\StudentClassController;
 use App\Http\Controllers\Backend\Setups\StudentYearController;
 use App\Http\Controllers\Backend\Setups\StudentGroupController;
@@ -129,4 +130,9 @@ Route::prefix('setups')->group(function () {
         Route::get('/school/subject/edit/{id}', [SchoolSubjectController::class,'EditSchoolSubject'])->name('school.subject.edit');
         Route::post('/school/subject/update/{id}', [SchoolSubjectController::class,'UpdateSchoolSubject'])->name('school.subject.update');
         Route::get('/school/subject/delete/{id}', [SchoolSubjectController::class,'DeleteSchoolSubject'])->name('school.subject.delete');
+
+        // Assign subject routes here
+        Route::get('/assign/subject/view', [AsignSubjectController::class,'ViewAssignSubject'])->name('assign.subject.view');
+        Route::get('/assign/subject/add', [AsignSubjectController::class,'AddAssignSubject'])->name('assign.subject.add');
+        Route::get('/assign/subject/store', [AsignSubjectController::class,'StoreAssignSubject'])->name('assign.subject.store');
 });
