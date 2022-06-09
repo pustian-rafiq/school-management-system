@@ -15,7 +15,7 @@
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form  method="post" action="{{ route('student.group.update',$examType->id)}}">
+               <form  method="post" action="{{ route('exam.type.update',$examType->id)}}">
                 @csrf
                   
                     <div class="row">

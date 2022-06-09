@@ -46,4 +46,35 @@ class ExamTypeCOntroller extends Controller
          return view('backend.setup.exam_type.edit_exam_type', compact('examType'));
      }
 
+      //Update student exam type
+      public function UpdateExamType(Request $request,$id){
+       
+        $examType = ExamType::find($id);
+ 
+        $validateData = $request->validate([
+         'name' => 'required|unique:exam_types,name,'.$examType->id
+     ]);
+     $examType->name = $request->name;
+        
+     $examType->save();
+
+     $notification = array(
+      'message' => 'Exam type updated successfully',
+      'alert-type' => 'success'
+  );
+  return redirect()->route('exam.type.view')->with($notification);
+  }
+
+    //Delete student exam type
+    public function DeleteExamType($id){
+       
+        $examType = ExamType::find($id);
+        $examType->delete();
+        
+        $notification = array(
+         'message' => 'Exam type deleted successfully',
+         'alert-type' => 'success'
+     );
+     return redirect()->route('exam.type.view')->with($notification);
+     }
 }
