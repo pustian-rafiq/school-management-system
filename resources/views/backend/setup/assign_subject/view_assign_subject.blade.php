@@ -33,8 +33,8 @@
                             {{-- <td>{{$feeAmount->class_id }}</td>
                             <td>{{$feeAmount->amount }}</td> --}}
                             <td style="width: 20%">
-                              <a href="{{ route('student.fee.amount.edit',$subject->class_id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.fee.amount.details',$subject->class_id) }}" class="btn btn-primary" >Details</a>
+                              <a href="{{ route('assign.subject.edit',$subject->class_id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('assign.subject.details',$subject->class_id) }}" class="btn btn-primary" >Details</a>
                             </td>
                         </tr>
                           @endforeach 

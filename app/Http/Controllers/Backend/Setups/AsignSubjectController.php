@@ -53,5 +53,45 @@ class AsignSubjectController extends Controller
       }
   }
 
+    //Edit assign subject
+    public function EditAssignSubject($id){
+      $editData = AsignSubject::where('class_id',$id)->orderBy('class_id')->get();
+      $subjects = SchoolSubject::all();
+      $classes = StudentClass::all();
+
+      return view('backend.setup.assign_subject.edit_assign_subject',compact('editData','subjects','classes'));
+    }
+
+ //Update assign subject
+ public function UpdateAssignSubject(Request $request, $id){
+
+      if($request->subject_id == NULL){
+        $notification = array(
+          'message' => 'You have to select subject',
+          'alert-type' => 'error'
+      );
+
+      return redirect()->back()->with($notification);
+      }else{
+        $countSubject = count($request->subject_id);
+        AsignSubject::where('class_id',$id)->delete();
+          for ($i=0; $i < $countSubject ; $i++) { 
+                $assignSubject = new AsignSubject();
+
+                $assignSubject->class_id = $request->class_id;
+                $assignSubject->subject_id = $request->subject_id[$i];
+                $assignSubject->full_mark = $request->full_mark[$i];
+                $assignSubject->pass_mark = $request->pass_mark[$i];
+                $assignSubject->subjective_mark = $request->subjective_mark[$i];
+
+                $assignSubject->save();
+            }                  
+      }
+      $notification = array(
+        'message' => 'Assign subject updated successfully',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('assign.subject.view')->with($notification);
+    }
 
 }
