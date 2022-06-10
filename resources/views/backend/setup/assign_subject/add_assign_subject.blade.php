@@ -41,7 +41,7 @@
 
                     
                    <div class="row">
-                      <div class="col-md-5"> 
+                      <div class="col-md-4"> 
                           <div class="form-group">
                               <h5>Select Subject Name <span class="text-danger">*</span></h5>
                               <div class="controls">
@@ -58,13 +58,35 @@
                            </div>                        
                        </div>            
                    
-                        <div class="col-md-5">		
+                        <div class="col-md-2">		
                             <div class="form-group">
-                                <h5>Fee Amount <span class="text-danger">*</span></h5>
+                                <h5>Pass Mark <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="amount[]" class="form-control"   placeholder="Enter your fee amount"> 
+                                    <input type="text" name="full_mark[]" class="form-control" > 
                                 </div>
-                                @error('amount') 
+                                @error('full_mark') 
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>    
+                        <div class="col-md-2">		
+                            <div class="form-group">
+                                <h5>Pass Mark <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input type="text" name="pass_mark[]" class="form-control" > 
+                                </div>
+                                @error('pass_mark') 
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>    
+                        <div class="col-md-2">		
+                            <div class="form-group">
+                                <h5>Subjective Mark <span class="text-danger">*</span></h5>
+                                <div class="controls">
+                                    <input type="text" name="subjective_mark[]" class="form-control"   > 
+                                </div>
+                                @error('subjective_mark') 
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -95,7 +117,7 @@
     <div class="whole_extra_item_add" id="whole_extra_item_add">
       <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
         <div class="form-row">
-          <div class="col-md-5"> 
+          <div class="col-md-4"> 
             <div class="form-group">
                 <h5>Select Class Name <span class="text-danger">*</span></h5>
                 <div class="controls">
@@ -112,13 +134,35 @@
              </div>                        
          </div>            
      
-          <div class="col-md-5">		
+          <div class="col-md-2">		
               <div class="form-group">
-                  <h5>Fee Amount <span class="text-danger">*</span></h5>
+                  <h5>Full Mark <span class="text-danger">*</span></h5>
                   <div class="controls">
-                      <input type="text" name="amount[]" class="form-control"   placeholder="Enter your fee amount"> 
+                      <input type="text" name="full_mark[]" class="form-control"  > 
                   </div>
-                  @error('name') 
+                  @error('full_mark') 
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
+              </div>
+          </div>    
+          <div class="col-md-2">		
+              <div class="form-group">
+                  <h5>Pass Mark <span class="text-danger">*</span></h5>
+                  <div class="controls">
+                      <input type="text" name="pass_mark[]" class="form-control"   > 
+                  </div>
+                  @error('pass_mark') 
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
+              </div>
+          </div>    
+          <div class="col-md-2">		
+              <div class="form-group">
+                  <h5>Subjective Mark <span class="text-danger">*</span></h5>
+                  <div class="controls">
+                      <input type="text" name="subjective_mark[]" class="form-control"   > 
+                  </div>
+                  @error('subjective_mark') 
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
               </div>
