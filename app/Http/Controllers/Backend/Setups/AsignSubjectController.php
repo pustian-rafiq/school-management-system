@@ -55,7 +55,7 @@ class AsignSubjectController extends Controller
 
     //Edit assign subject
     public function EditAssignSubject($id){
-      $editData = AsignSubject::where('class_id',$id)->orderBy('class_id')->get();
+      $editData = AsignSubject::where('subject_id',$id)->orderBy('class_id')->get();
       $subjects = SchoolSubject::all();
       $classes = StudentClass::all();
 
@@ -93,5 +93,13 @@ class AsignSubjectController extends Controller
     );
     return redirect()->route('assign.subject.view')->with($notification);
     }
+   // Details assign subject
+   public function DetailsAssignSubject($id){
+    $detailsData = AsignSubject::where('class_id',$id)->orderBy('class_id')->get();
+    $subjects = SchoolSubject::all();
+    $classes = StudentClass::all();
+
+    return view('backend.setup.assign_subject.details_assign_subject',compact('detailsData'));
+  }
 
 }
