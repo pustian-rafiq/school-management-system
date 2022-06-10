@@ -134,5 +134,5 @@ Route::prefix('setups')->group(function () {
         // Assign subject routes here
         Route::get('/assign/subject/view', [AsignSubjectController::class,'ViewAssignSubject'])->name('assign.subject.view');
         Route::get('/assign/subject/add', [AsignSubjectController::class,'AddAssignSubject'])->name('assign.subject.add');
-        Route::get('/assign/subject/store', [AsignSubjectController::class,'StoreAssignSubject'])->name('assign.subject.store');
+        Route::post('/assign/subject/store', [AsignSubjectController::class,'StoreAssignSubject'])->name('assign.subject.store');
 });

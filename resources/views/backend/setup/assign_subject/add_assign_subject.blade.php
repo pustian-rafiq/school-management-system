@@ -24,14 +24,14 @@
                         <div class="form-group">
                             <h5>Class Name <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <select name="fee_category_id" id="select" required class="form-control">
+                                <select name="class_id" id="select" required class="form-control">
                                     <option value="">Select a class</option>
                                     @foreach($classes as $class)
                                     <option value="{{ $class->id }}">{{ $class->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('fee_category') 
+                            @error('class_id') 
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                         </div>
@@ -45,14 +45,14 @@
                           <div class="form-group">
                               <h5>Select Subject Name <span class="text-danger">*</span></h5>
                               <div class="controls">
-                                  <select name="class_id[]" id="select" required class="form-control">
+                                  <select name="subject_id[]" id="select" required class="form-control">
                                       <option value="">Select a subject</option>
-                                      @foreach($subjects as $subject)
+                                      @foreach($assignSubjects as $subject)
                                       <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                       @endforeach
                                   </select>
                               </div>
-                              @error('class_id') 
+                              @error('subject_id') 
                                   <span class="text-danger">{{ $message }}</span>
                                   @enderror
                            </div>                        
@@ -60,7 +60,7 @@
                    
                         <div class="col-md-2">		
                             <div class="form-group">
-                                <h5>Pass Mark <span class="text-danger">*</span></h5>
+                                <h5>Full Mark <span class="text-danger">*</span></h5>
                                 <div class="controls">
                                     <input type="text" name="full_mark[]" class="form-control" > 
                                 </div>
@@ -119,16 +119,16 @@
         <div class="form-row">
           <div class="col-md-4"> 
             <div class="form-group">
-                <h5>Select Class Name <span class="text-danger">*</span></h5>
+                <h5>Select Subject Name <span class="text-danger">*</span></h5>
                 <div class="controls">
-                    <select name="class_id[]" id="select" required class="form-control">
-                        <option value="">Select a class</option>
-                        @foreach($classes as $class)
-                        <option value="{{ $class->id }}">{{ $class->name }}</option>
+                    <select name="subject_id[]" id="select" required class="form-control">
+                        <option value="">Select a subject</option>
+                        @foreach($assignSubjects as $subject)
+                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                         @endforeach
                     </select>
                 </div>
-                @error('class_id') 
+                @error('subject_id') 
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
              </div>                        

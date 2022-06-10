@@ -28,13 +28,13 @@
                        @foreach($assignSubjects as $key => $subject)
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
-                            <td>{{$subject->class_id }}</td>
+                            <td>{{$subject->student_class->name }}</td>
                             {{-- <td>{{$feeAmount['fee_category']['name'] }}</td> --}}
                             {{-- <td>{{$feeAmount->class_id }}</td>
                             <td>{{$feeAmount->amount }}</td> --}}
                             <td style="width: 20%">
-                              {{-- <a href="{{ route('student.fee.amount.edit',$feeAmount->fee_category_id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.fee.amount.details',$feeAmount->fee_category_id) }}" class="btn btn-primary" >Details</a> --}}
+                              <a href="{{ route('student.fee.amount.edit',$subject->class_id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.fee.amount.details',$subject->class_id) }}" class="btn btn-primary" >Details</a>
                             </td>
                         </tr>
                           @endforeach 
