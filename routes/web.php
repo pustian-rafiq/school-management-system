@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setups\AsignSubjectController;
+use App\Http\Controllers\Backend\Setups\DesignationController;
 use App\Http\Controllers\Backend\Setups\StudentClassController;
 use App\Http\Controllers\Backend\Setups\StudentYearController;
 use App\Http\Controllers\Backend\Setups\StudentGroupController;
@@ -74,7 +75,7 @@ Route::prefix('setups')->group(function () {
     Route::post('/student/class/update/{id}', [StudentClassController::class,'UpdateStudentClass'])->name('student.class.update');
     Route::get('/student/class/delete/{id}', [StudentClassController::class,'DeleteStudentClass'])->name('student.class.delete');
 
-    // Student class routes here
+    // Student year routes here
     Route::get('/student/year/view', [StudentYearController::class,'ViewStudentYear'])->name('student.year.view');
     Route::get('/student/year/add', [StudentYearController::class,'AddStudentYear'])->name('student.year.add');
     Route::post('/student/year/store', [StudentYearController::class,'StoreStudentYear'])->name('student.year.store');
@@ -138,4 +139,8 @@ Route::prefix('setups')->group(function () {
         Route::get('/assign/subject/edit/{id}', [AsignSubjectController::class,'EditAssignSubject'])->name('assign.subject.edit');
         Route::post('/assign/subject/update/{id}', [AsignSubjectController::class,'UpdateAssignSubject'])->name('assign.subject.update');
         Route::get('/assign/subject/details/{id}', [AsignSubjectController::class,'DetailsAssignSubject'])->name('assign.subject.details');
+
+        // Designation routes here
+        Route::get('/designation/view', [DesignationController::class,'ViewDesignation'])->name('designation.view');
+        Route::get('/designation/add', [DesignationController::class,'AddDesignation'])->name('designation.add');
 });
