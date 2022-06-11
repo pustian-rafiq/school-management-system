@@ -143,4 +143,5 @@ Route::prefix('setups')->group(function () {
         // Designation routes here
         Route::get('/designation/view', [DesignationController::class,'ViewDesignation'])->name('designation.view');
         Route::get('/designation/add', [DesignationController::class,'AddDesignation'])->name('designation.add');
+        Route::post('/designation/store', [DesignationController::class,'StoreSchoolSubject'])->name('designation.store');
 });
