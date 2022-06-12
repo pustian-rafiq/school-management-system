@@ -144,4 +144,8 @@ Route::prefix('setups')->group(function () {
         Route::get('/designation/view', [DesignationController::class,'ViewDesignation'])->name('designation.view');
         Route::get('/designation/add', [DesignationController::class,'AddDesignation'])->name('designation.add');
         Route::post('/designation/store', [DesignationController::class,'StoreSchoolSubject'])->name('designation.store');
+        Route::get('/designation/edit/{id}', [DesignationController::class,'EditDesignation'])->name('designation.edit');
+        Route::post('/designation/update/{id}', [DesignationController::class,'UpdateDesignation'])->name('designation.update');
+        Route::get('/designation/delete/{id}', [DesignationController::class,'DeleteDesignation'])->name('designation.delete');
+
 });
