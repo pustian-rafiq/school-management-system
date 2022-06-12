@@ -77,4 +77,10 @@ class SchoolSubjectController extends Controller
      return redirect()->route('school.subject.view')->with($notification);
      }
 
+     
+// rafiqul.pust.cse@gmail.com
+// Md. Rafiqul Islam
+// $2y$10$WaCYv6YvbWxkE3nP2Dy7m.qa0o7UH//UbJ.nKWRtiJpYsCMW4Z4Em
+// 202206050157logo6.png
+
 }
