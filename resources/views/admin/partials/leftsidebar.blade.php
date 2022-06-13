@@ -32,11 +32,11 @@ $route = Route::current()->getName();
 		        	<span>Dashboard</span>
           </a>
         </li>  
-		
+		@if(Auth::user()->role =='Admin')
         <li class="treeview {{ ($prefix == '/users') ? 'active' : '' }} ">
           <a href="#">
             <i data-feather="message-circle"></i>
-            <span>User</span>
+            <span>User Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -46,7 +46,7 @@ $route = Route::current()->getName();
             <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
           </ul>
         </li> 
-		  
+	@endif	  
         <li class="treeview {{ ($prefix == '/profile') ? 'active' : ''  }} ">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Profile</span>
