@@ -60,7 +60,7 @@ $route = Route::current()->getName();
           </ul>
         </li>
 
-        {{-- Student class --}}
+        {{-- Student setup --}}
         <li class="treeview {{ ($prefix == '/setups') ? 'active' : ''  }} ">
           <a href="#">
             <i data-feather="mail"></i> <span>Setup Management</span>
@@ -79,6 +79,20 @@ $route = Route::current()->getName();
             <li><a href="{{ route('school.subject.view') }}" ><i class="ti-more"></i>School Subject</a></li>
             <li><a href="{{ route('assign.subject.view') }}" ><i class="ti-more"></i>Assign Subject</a></li>
             <li><a href="{{ route('designation.view') }}" ><i class="ti-more"></i>Designations</a></li>
+          </ul>
+        </li>
+
+        {{-- Student class --}}
+        <li class="treeview {{ ($prefix == '/students') ? 'active' : ''  }} ">
+          <a href="#">
+            <i data-feather="mail"></i>Student Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
+            
           </ul>
         </li>
 		

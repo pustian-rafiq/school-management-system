@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\Setups\StudentFeeCategoryController;
 use App\Http\Controllers\Backend\Setups\StudentFeeAmountController;
 use App\Http\Controllers\Backend\Setups\ExamTypeCOntroller;
 use App\Http\Controllers\Backend\Setups\SchoolSubjectController;
+use App\Http\Controllers\Backend\Student\StudentRegController;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,5 +148,12 @@ Route::prefix('setups')->group(function () {
         Route::get('/designation/edit/{id}', [DesignationController::class,'EditDesignation'])->name('designation.edit');
         Route::post('/designation/update/{id}', [DesignationController::class,'UpdateDesignation'])->name('designation.update');
         Route::get('/designation/delete/{id}', [DesignationController::class,'DeleteDesignation'])->name('designation.delete');
+
+});
+
+//Student register routes here 
+Route::prefix('students')->group(function () {
+    Route::get('/reg/view', [StudentRegController::class,'ViewStudentRegistration'])->name('student.registration.view');
+    Route::get('/reg/add', [StudentRegController::class,'AddStudentRegistration'])->name('student.registration.add');
 
 });
