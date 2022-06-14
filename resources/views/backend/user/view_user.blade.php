@@ -19,6 +19,7 @@
                           <th>SL No</th>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>Code</th>
                           <th>Role</th>
                           <th>Action</th>
                         </tr>
@@ -30,7 +31,8 @@
                             <td>1</td>
                             <td>{{$user->name }}</td>
                             <td>{{$user->email }}</td>
-                            <td>{{$user->user_type }}</td>
+                            <td>{{$user->code }}</td>
+                            <td>{{$user->role }}</td>
                             <td>
                               <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success">Edit</a>
                               <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger" id="delete">Delete</a>
@@ -43,6 +45,7 @@
                             <th>SL No</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Code</th>
                             <th>Role</th>
                             <th>Action</th>
                         </tr>

@@ -10,7 +10,8 @@ class UserController extends Controller
     //Fetch all users
 
     public function ViewUser(){
-        $users = User::latest()->get();
+        // $users = User::latest()->get();
+        $users = User::where('user_type','Admin')->get();
         return view('backend.user.view_user', compact('users'));
     }
     //Show user add form
@@ -29,10 +30,13 @@ class UserController extends Controller
 
         $data = new User();
 
+        $code = rand(0000,9999);
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->user_type = $request->user_type;
-        $data->password = bcrypt($request->password);
+        $data->role = $request->role;
+        $data->user_type = 'Admin';
+        $data->password = bcrypt($code);
+        $data->code = $code;
 
         $data->save();
 
@@ -57,8 +61,7 @@ class UserController extends Controller
 
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->user_type = $request->user_type;
-
+        $data->role = $request->role;
         $data->save();
         return redirect()->route('user.view');
     }
