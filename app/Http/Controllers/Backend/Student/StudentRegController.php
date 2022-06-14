@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Backend\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\AssignStudent;
+use App\Models\StudentClass;
+use App\Models\StudentGroup;
+use App\Models\StudentShift;
+use App\Models\StudentYear;
 use Illuminate\Http\Request;
 
 class StudentRegController extends Controller
@@ -16,6 +20,10 @@ class StudentRegController extends Controller
 
     //Show add registration form
     public function AddStudentRegistration(){
-        return view('backend.student.student_reg.add_student');
+        $classes = StudentClass::all();
+        $groups = StudentGroup::all();
+        $years = StudentYear::all();
+        $shifts = StudentShift::all();
+        return view('backend.student.student_reg.add_student',compact('classes', 'groups', 'years','shifts'));
     }
 }
