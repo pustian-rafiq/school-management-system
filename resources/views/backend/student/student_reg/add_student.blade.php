@@ -8,14 +8,14 @@
     <!-- Basic Forms -->
      <div class="box">
        <div class="box-header with-border">
-         <h4 class="box-title">Add Student Year</h4>
-         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.year.view')}}">View Student Years </a> 
+         <h4 class="box-title">Add Student</h4>
+         <a class="btn btn-rounded btn-success" style="float: right" href="{{  route('student.registration.view')}}">View Students </a> 
        </div>
        <!-- /.box-header -->
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form  method="post" action="{{ route('student.year.store')}}">
+               <form  method="post" action="{{ route('student.registration.store')}}" enctype="multipart/form-data">
                 @csrf
                    
                <!--start first row--> 
