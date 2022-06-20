@@ -20,7 +20,9 @@ class StudentRegController extends Controller
     //fetch all students
     public function ViewStudentRegistration(){
         $students = AssignStudent::all();
-        return view('backend.student.student_reg.view_student',compact('students'));
+        $classes = StudentClass::all();
+        $years = StudentYear::all();
+        return view('backend.student.student_reg.view_student',compact('students','classes','years'));
     }
 
     //Show add registration form
