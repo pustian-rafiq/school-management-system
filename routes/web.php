@@ -156,6 +156,7 @@ Route::prefix('students')->group(function () {
     Route::get('/reg/view', [StudentRegController::class,'ViewStudentRegistration'])->name('student.registration.view');
     Route::get('/reg/add', [StudentRegController::class,'AddStudentRegistration'])->name('student.registration.add');
     Route::post('/reg/store', [StudentRegController::class,'StoreStudentRegistration'])->name('student.registration.store');
+    Route::get('/reg/edit/{id}', [StudentRegController::class,'EditStudentRegistration'])->name('student.registration.edit');
 
     //Search student using their class and year
     Route::get('/search/year/class', [StudentRegController::class,'SearchStudentByYearClass'])->name('student.search.year.class');

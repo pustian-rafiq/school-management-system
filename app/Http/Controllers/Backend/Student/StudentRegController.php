@@ -112,7 +112,7 @@ public function StoreStudentRegistration(Request $request){
         $discountStudent = new DiscountStudent();
         $discountStudent->assign_student_id = $assignStudent->id;
         $discountStudent->fee_category_id = '1';
-        $discountStudent->assign_student_id =  $request->discount;
+        $discountStudent->discount =  $request->discount;
         $discountStudent->save();
 
        
@@ -125,6 +125,18 @@ public function StoreStudentRegistration(Request $request){
     return redirect()->route('student.registration.view')->with($notification);
   }
 
+  // Edit student registration
+  public function EditStudentRegistration($id){
+        $classes = StudentClass::all();
+        $groups = StudentGroup::all();
+        $years = StudentYear::all();
+        $shifts = StudentShift::all();
+
+        $assignStudent= AssignStudent::with('student','discount')->where('student_id',$id)->get();
+
+        dd($assignStudent->toArray());
+       // return view('backend.student.student_reg.add_student',compact('classes', 'groups', 'years','shifts'));
+  }
 
 // Search for students using their class and years
   public function SearchStudentByYearClass(Request $request){
@@ -137,4 +149,5 @@ public function StoreStudentRegistration(Request $request){
     $students = AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->get();
     return view('backend.student.student_reg.view_student',compact('students','classes','years','year_id','class_id'));
   }
+
 }
