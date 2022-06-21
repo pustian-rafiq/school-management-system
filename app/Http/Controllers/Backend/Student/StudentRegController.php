@@ -26,7 +26,7 @@ class StudentRegController extends Controller
         $class_id = StudentClass::orderBy('id','desc')->first()->id; // student class theke first column er id tule nia asbe
         $years = StudentYear::all();
         $students = AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->get();
-        return view('backend.student.student_reg.view_student',compact('students','classes','years'));
+        return view('backend.student.student_reg.view_student',compact('students','classes','years','year_id','class_id'));
     }
 
     //Show add registration form

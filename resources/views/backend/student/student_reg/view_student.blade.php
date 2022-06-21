@@ -22,7 +22,7 @@
                                         <select name="year_id" required="" class="form-control">
                                             <option value="" selected="" disabled="">Select Year</option>
                                             @foreach($years as $year)
-                                              <option value="{{ $year->id }}" {{ (@$year_id == $year->id)? "selected":"" }} >{{ $year->name }}</option>
+                                              <option value="{{ $year->id }}" {{ ($year_id == $year->id) ? "selected":"" }} >{{ $year->name }}</option>
                                             @endforeach
                                           </select>
                                   </div>		 
@@ -36,7 +36,7 @@
                                           <select name="class_id"  required="" class="form-control">
                                               <option value="" selected="" disabled="">Select Class</option>
                                                 @foreach($classes as $class)
-                                                  <option value="{{ $class->id }}" {{ (@$class_id == $class->id)? "selected":"" }}>{{ $class->name }}</option>
+                                                  <option value="{{ $class->id }}" {{ ($class_id == $class->id) ? "selected":"" }}>{{ $class->name }}</option>
                                                 @endforeach
                                               
                                             </select>
@@ -68,7 +68,13 @@
                         <tr>
                           <th>SL No</th>
                           <th>Name</th>
-                          <th>Id No</th>
+                          <th>Roll</th>
+                          <th>Year</th>
+                          <th>Class</th>
+                          <th>Image</th>
+                          @if (Auth::user()->role == 'Admin'))
+                          <th>Code</th>
+                          @endif
                           <th>Action</th>
                         </tr>
                     </thead>
@@ -77,9 +83,14 @@
                        @foreach($students as $key => $student)
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
-                            <td>{{$student->class_id }}</td>
-                            <td>{{$student->year_id }}</td>
-                            {{-- <td>{{$student->year_id }}</td> --}}
+                            <td>{{$student->student->name }}</td>
+                            <td></td>  
+                            <td>{{$student->student_year->name }}</td>              
+                            <td>{{$student->student_class->name }}</td>              
+                            <td>
+                              <img style="height:70px; width:70px" src="{{ (!empty($student->student->image)) ? url('backend/uploads/students/',$student->student->image) : url('backend/uploads/default.png') }}" />
+                            </td>  
+                            <td>{{$student->student->code }}</td>            
                             <td style="width: 20%">
                               <a href="{{ route('student.year.edit',$student->id) }}" class="btn btn-success">Edit</a>
                               <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
@@ -89,10 +100,16 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>SL No</th>
-                            <th>Name</th>
-                            <th>Id No</th>
-                            <th>Action</th>
+                          <th>SL No</th>
+                          <th>Name</th>
+                          <th>Roll</th>
+                          <th>Year</th>
+                          <th>Class</th>
+                          <th>Image</th>
+                          @if (Auth::user()->role == 'Admin'))
+                          <th>Code</th>
+                          @endif
+                          <th>Action</th>
                         </tr>
                     </tfoot>
                   </table>

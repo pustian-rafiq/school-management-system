@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class AssignStudent extends Model
 {
     use HasFactory;
+/**
+ * One-to-one and one-to-many relationship er somai child model theke parent model er belongsTo() relation hbe
+ * One-to-one er somai parent model theke child model er hasOne() relation hbe
+ * One-to-many er somai parent model theke child model er hasMany() relation hbe
+ * Many-to-many er somai parent model theke and child model theke belongsToMany() relation hbe
+*/
+    public function student(){
+        return $this->belongsTo(User::class, 'student_id','id');
+    }
+    public function student_class(){
+        return $this->belongsTo(StudentClass::class, 'year_id','id');
+    }
+    public function student_year(){
+        return $this->belongsTo(StudentYear::class, 'class_id','id');
+    }
 }
