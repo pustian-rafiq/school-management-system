@@ -15,6 +15,7 @@ class CreateAssignStudentsTable extends Migration
     {
         Schema::create('assign_students', function (Blueprint $table) {
             $table->id();
+            $table->integer('roll')->nullable();
             $table->integer('student_id')->comment('user_id=student_id');
             $table->integer('class_id');
             $table->integer('year_id');

@@ -12,7 +12,7 @@
               <h4 class="box-title">Student <strong>Search</strong></h4>
                 </div>
                   <div class="box-body">   
-                     <form method="GET"  >
+                     <form method="GET" action="{{ route('student.search.year.class') }}" >
                         <div class="row">
                             <div class="col-md-4">
               
@@ -63,6 +63,9 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
+
+                  <!-- Show the list of students by searching theri class and year -->
+                  @if(!@search)
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -84,7 +87,7 @@
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
                             <td>{{$student->student->name }}</td>
-                            <td></td>  
+                            <td>{{ $student->roll }}</td>  
                             <td>{{$student->student_year->name }}</td>              
                             <td>{{$student->student_class->name }}</td>              
                             <td>
@@ -113,6 +116,61 @@
                         </tr>
                     </tfoot>
                   </table>
+                  @endif
+
+            <!-- Show default student list-->
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                          <th>SL No</th>
+                          <th>Name</th>
+                          <th>Roll</th>
+                          <th>Year</th>
+                          <th>Class</th>
+                          <th>Image</th>
+                          @if (Auth::user()->role == 'Admin'))
+                          <th>Code</th>
+                          @endif
+                          <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                       @foreach($students as $key => $student)
+                        <tr>
+                            <td style="width: 10%">{{ ++$key }}</td>
+                            <td>{{$student->student->name }}</td>
+                            <td>{{ $student->roll }}</td>  
+                            <td>{{$student->student_year->name }}</td>              
+                            <td>{{$student->student_class->name }}</td>              
+                            <td>
+                              <img style="height:70px; width:70px" src="{{ (!empty($student->student->image)) ? url('backend/uploads/students/',$student->student->image) : url('backend/uploads/default.png') }}" />
+                            </td>  
+                            <td>{{$student->student->code }}</td>            
+                            <td style="width: 20%">
+                              <a href="{{ route('student.year.edit',$student->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                            </td>
+                        </tr>
+                          @endforeach 
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <th>SL No</th>
+                          <th>Name</th>
+                          <th>Roll</th>
+                          <th>Year</th>
+                          <th>Class</th>
+                          <th>Image</th>
+                          @if (Auth::user()->role == 'Admin'))
+                          <th>Code</th>
+                          @endif
+                          <th>Action</th>
+                        </tr>
+                    </tfoot>
+                  </table>
+
+
                 </div>
             </div>
             <!-- /.box-body -->

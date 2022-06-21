@@ -123,5 +123,18 @@ public function StoreStudentRegistration(Request $request){
     );
 
     return redirect()->route('student.registration.view')->with($notification);
-}
+  }
+
+
+// Search for students using their class and years
+  public function SearchStudentByYearClass(Request $request){
+    $classes = StudentClass::all();
+    $years = StudentYear::all();
+    
+    $year_id =  $request->year_id;
+    $class_id = $request->class_id;
+
+    $students = AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->get();
+    return view('backend.student.student_reg.view_student',compact('students','classes','years','year_id','class_id'));
+  }
 }
