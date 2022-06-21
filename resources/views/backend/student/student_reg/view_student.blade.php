@@ -77,8 +77,8 @@
                        @foreach($students as $key => $student)
                         <tr>
                             <td style="width: 10%">{{ ++$key }}</td>
-                            <td>{{$student->student_id }}</td>
                             <td>{{$student->class_id }}</td>
+                            <td>{{$student->year_id }}</td>
                             {{-- <td>{{$student->year_id }}</td> --}}
                             <td style="width: 20%">
                               <a href="{{ route('student.year.edit',$student->id) }}" class="btn btn-success">Edit</a>
