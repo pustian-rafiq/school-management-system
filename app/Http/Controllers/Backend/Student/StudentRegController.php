@@ -19,9 +19,13 @@ class StudentRegController extends Controller
 {
     //fetch all students
     public function ViewStudentRegistration(){
-        $students = AssignStudent::all();
+     
         $classes = StudentClass::all();
+
+        $year_id = StudentYear::orderBy('id','desc')->first()->id; // student year theke first column er id tule nia asbe
+        $class_id = StudentClass::orderBy('id','desc')->first()->id; // student class theke first column er id tule nia asbe
         $years = StudentYear::all();
+        $students = AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->get();
         return view('backend.student.student_reg.view_student',compact('students','classes','years'));
     }
 
