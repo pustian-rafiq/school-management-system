@@ -140,6 +140,60 @@ public function StoreStudentRegistration(Request $request){
        return view('backend.student.student_reg.edit_student',compact('editStudent','classes', 'groups', 'years','shifts'));
   }
 
+//Update student data
+public function UpdateStudentRegistration(Request $request,$student_id){
+    //ekhane transaction use kora hoi database a eksathe onek gulo operation korar jonno
+    DB::transaction(function() use($request,$student_id) {
+        
+
+        $user = User::where('id',$student_id)->first();
+
+        $user->name = $request->name;
+        $user->father_name = $request->father_name;
+        $user->mother_name = $request->mother_name;
+        $user->mobile = $request->mobile;
+        $user->address = $request->address;
+        $user->gender = $request->gender;
+        $user->religion = $request->religion;
+        $user->dob = date('Y-m-d',strtotime($request->dob));
+
+        if($request->file('image')){
+            $image = $request->file('image');
+            @unlink(public_path('backend/uploads/students/'.$user->image));
+            $img_name = date('YmdHi').$image->getClientOriginalName();
+            $image->move(public_path("backend/uploads/students"),$img_name);
+            $user['image'] = $img_name;
+        }
+        
+        $user->save();
+
+        //Save assign student data
+        $assignStudent = AssignStudent::where('id',$request->id)->where('student_id',$student_id)->first();
+        $assignStudent->student_id = $user->id;
+        $assignStudent->year_id = $request->year_id;
+        $assignStudent->class_id = $request->class_id;
+        $assignStudent->group_id = $request->group_id;
+        $assignStudent->shift_id = $request->shift_id;
+        $assignStudent->save();
+
+
+        //Save discount_students data data
+
+        $discountStudent = DiscountStudent::where('assign_student_id',$request->id)->first();
+
+        $discountStudent->discount =  $request->discount;
+        $discountStudent->save();
+
+       
+    });
+    $notification = array(
+        'message' => 'Student registration is updated successfull',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->route('student.registration.view')->with($notification);
+  }
+
 // Search for students using their class and years
   public function SearchStudentByYearClass(Request $request){
     $classes = StudentClass::all();

@@ -15,9 +15,9 @@
        <div class="box-body">
          <div class="row">
            <div class="col">
-               <form  method="post" action="{{ route('student.registration.store')}}" enctype="multipart/form-data">
+               <form  method="post" action="{{ route('student.registration.update',$editStudent->student_id)}}" enctype="multipart/form-data">
                 @csrf
-                   
+                   <input type="hidden" name="id" value="{{ $editStudent->id}}">
                <!--start first row--> 
                     <div class="row">  
                         <div class="col-4">		
