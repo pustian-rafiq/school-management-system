@@ -11,9 +11,8 @@ use App\Models\StudentShift;
 use App\Models\StudentYear;
 use App\Models\User;
 use Illuminate\Http\Request;
-// use DB;
 use Illuminate\Support\Facades\DB;
-
+use PDF;
 
 class StudentRegController extends Controller
 {
@@ -263,6 +262,26 @@ public function UpdateStudentPromotion(Request $request,$student_id){
 
     return redirect()->route('student.registration.view')->with($notification);
   }
+
+//Generate student registration details pdf database
+public function StudentDetailsPdf($student_id){
+    $studentDetails= AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first(); 
+
+    $data = [
+
+        'title' => 'Welcome to ItSolutionStuff.com',
+
+        'date' => date('m/d/Y')
+
+    ];
+
+    $pdf = PDF::loadView('backend.student.student_reg.student_details_pdf', compact('studentDetails'));
+
+$code = $studentDetails->student->code;
+    return $pdf->download($code.'.pdf');
+}
+
+
 // Search for students using their class and years
   public function SearchStudentByYearClass(Request $request){
     $classes = StudentClass::all();

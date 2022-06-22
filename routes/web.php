@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\Setups\ExamTypeCOntroller;
 use App\Http\Controllers\Backend\Setups\SchoolSubjectController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
 
+use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,8 +45,9 @@ Route::middleware([
 // Admin logout
 Route::get('admin/logout', [AdminController::class,'Logout'])->name('admin.logout');
 
-//Users routes here 
 
+
+//Users routes here 
 Route::prefix('users')->group(function () {
     Route::get('/view', [UserController::class,'ViewUser'])->name('user.view');
     Route::get('/add', [UserController::class,'AddUser'])->name('user.add');
@@ -160,6 +162,9 @@ Route::prefix('students')->group(function () {
     Route::post('/reg/update/{id}', [StudentRegController::class,'UpdateStudentRegistration'])->name('student.registration.update');
     Route::get('/reg/promotion/{student_id}', [StudentRegController::class,'EditStudentPromotion'])->name('student.registration.promotion');
     Route::post('/reg/promotion/update/{student_id}', [StudentRegController::class,'UpdateStudentPromotion'])->name('promotion.student.registration');
+
+    //Generate PDF route here
+    Route::get('reg/details/pdf/{student_id}', [StudentRegController::class, 'StudentDetailsPdf'])->name('student.registration.details');
 
     //Search student using their class and year
     Route::get('/search/year/class', [StudentRegController::class,'SearchStudentByYearClass'])->name('student.search.year.class');

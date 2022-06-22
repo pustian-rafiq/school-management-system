@@ -26,6 +26,13 @@ class AssignStudent extends Model
     public function student_year(){
         return $this->belongsTo(StudentYear::class, 'year_id','id');
     }
+    public function student_group(){
+        return $this->belongsTo(StudentGroup::class, 'group_id','id');
+    }
+    public function student_shift(){
+        return $this->belongsTo(StudentShift::class, 'shift_id','id');
+    }
+ 
 
     /**
      * ekhane AssignStudent table parent and DiscountStudent table hoilo child table
