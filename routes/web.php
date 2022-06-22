@@ -158,6 +158,8 @@ Route::prefix('students')->group(function () {
     Route::post('/reg/store', [StudentRegController::class,'StoreStudentRegistration'])->name('student.registration.store');
     Route::get('/reg/edit/{id}', [StudentRegController::class,'EditStudentRegistration'])->name('student.registration.edit');
     Route::post('/reg/update/{id}', [StudentRegController::class,'UpdateStudentRegistration'])->name('student.registration.update');
+    Route::get('/reg/promotion/{student_id}', [StudentRegController::class,'EditStudentPromotion'])->name('student.registration.promotion');
+    Route::post('/reg/promotion/update/{student_id}', [StudentRegController::class,'UpdateStudentPromotion'])->name('promotion.student.registration');
 
     //Search student using their class and year
     Route::get('/search/year/class', [StudentRegController::class,'SearchStudentByYearClass'])->name('student.search.year.class');

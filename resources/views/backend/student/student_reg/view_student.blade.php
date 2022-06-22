@@ -75,7 +75,7 @@
                           <th>Year</th>
                           <th>Class</th>
                           <th>Image</th>
-                          @if (Auth::user()->role == 'Admin'))
+                          @if (Auth::user()->role == 'Admin')
                           <th>Code</th>
                           @endif
                           <th>Action</th>
@@ -96,7 +96,7 @@
                             <td>{{$student->student->code }}</td>            
                             <td style="width: 20%">
                               <a href="{{ route('student.registration.edit',$student->student_id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              <a href="{{ route('student.registration.promotion',$student->student_id) }}" class="btn btn-danger">Promotion</a>
                             </td>
                         </tr>
                           @endforeach 
@@ -109,7 +109,7 @@
                           <th>Year</th>
                           <th>Class</th>
                           <th>Image</th>
-                          @if (Auth::user()->role == 'Admin'))
+                          @if (Auth::user()->role == 'Admin')
                           <th>Code</th>
                           @endif
                           <th>Action</th>
@@ -149,7 +149,7 @@
                             <td>{{$student->student->code }}</td>            
                             <td style="width: 20%">
                               <a href="{{ route('student.registration.edit',$student->student_id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              <a href="{{ route('student.registration.promotion',$student->student_id) }}" class="btn btn-danger">Promotion</a>
                             </td>
                         </tr>
                           @endforeach 
