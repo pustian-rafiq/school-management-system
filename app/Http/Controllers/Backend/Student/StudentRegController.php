@@ -132,10 +132,12 @@ public function StoreStudentRegistration(Request $request){
         $years = StudentYear::all();
         $shifts = StudentShift::all();
 
-        $assignStudent= AssignStudent::with('student','discount')->where('student_id',$id)->get();
+        $editStudent= AssignStudent::with(['student','discount'])->where('student_id',$id)->first(); 
+        //first() ekta data return kore but get() array return kore
 
-        dd($assignStudent->toArray());
-       // return view('backend.student.student_reg.add_student',compact('classes', 'groups', 'years','shifts'));
+        //dd($editStudent->toArray());
+        //return $editStudent;
+       return view('backend.student.student_reg.edit_student',compact('editStudent','classes', 'groups', 'years','shifts'));
   }
 
 // Search for students using their class and years

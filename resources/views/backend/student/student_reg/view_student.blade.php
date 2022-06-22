@@ -95,7 +95,7 @@
                             </td>  
                             <td>{{$student->student->code }}</td>            
                             <td style="width: 20%">
-                              <a href="{{ route('student.registration.edit',$student->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.registration.edit',$student->student_id) }}" class="btn btn-success">Edit</a>
                               <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
@@ -148,7 +148,7 @@
                             </td>  
                             <td>{{$student->student->code }}</td>            
                             <td style="width: 20%">
-                              <a href="{{ route('student.registration.edit',$student->id) }}" class="btn btn-success">Edit</a>
+                              <a href="{{ route('student.registration.edit',$student->student_id) }}" class="btn btn-success">Edit</a>
                               <a href="{{ route('student.year.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>

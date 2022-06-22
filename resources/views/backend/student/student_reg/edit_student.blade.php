@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <h5>Student Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control"  > 
+                                    <input type="text" name="name" class="form-control" value="{{ $editStudent->student->name }}" > 
                                 </div>
                                 @error('name') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <h5>Father Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="father_name" class="form-control" > 
+                                    <input type="text" name="father_name" class="form-control"  value="{{ $editStudent->student->father_name }}" > 
                                 </div>
                                 @error('father_name') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <h5>Mother Name <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="mother_name" class="form-control"  > 
+                                    <input type="text" name="mother_name" class="form-control"  value="{{ $editStudent->student->mother_name }}" > 
                                 </div>
                                 @error('mother_name') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <h5>Mobile Number <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="mobile" class="form-control"  > 
+                                    <input type="text" name="mobile" class="form-control"  value="{{ $editStudent->student->mobile }}" > 
                                 </div>
                                 @error('mobile') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <h5>Address <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="address" class="form-control"  > 
+                                    <input type="text" name="address" class="form-control"  value="{{ $editStudent->student->address }}" > 
                                 </div>
                                 @error('address') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -86,10 +86,10 @@
                                 <div class="controls">
                                   <select name="gender" id="select" required class="form-control">
                                     <option value="">Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                    <option value="Male" {{($editStudent->student->gender == 'Male') ? 'selected' : ''}}>Male</option>
+                                    <option value="Female" {{($editStudent->student->gender == 'Female') ? 'selected' : ''}}>Female</option>
                                 </select>
-                                </div>
+                                </div> 
                                 @error('gender') 
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -106,9 +106,9 @@
                                 <div class="controls">
                                   <select name="religion" id="religion" required class="form-control">
                                     <option value="">Select Religion</option>
-                                    <option value="Islam">Islam</option>
-                                    <option value="Hindu">Hindu</option>
-                                    <option value="Chiristian">Chiristian</option>
+                                    <option value="Islam" {{($editStudent->student->religion == 'Islam') ? 'selected' : ''}}>Islam</option>
+                                    <option value="Hindu" {{($editStudent->student->religion == 'Hindu') ? 'selected' : ''}}>Hindu</option>
+                                    <option value="Chiristian"  {{($editStudent->student->religion == 'Chiristian') ? 'selected' : ''}}>Chiristian</option>
                                 </select>
                                 </div>
                                 @error('religion') 
@@ -120,7 +120,7 @@
                             <div class="form-group">
                                 <h5>Date of Birth <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="date" name="dob" class="form-control"  > 
+                                    <input type="date" name="dob" class="form-control"  value="{{ $editStudent->student->dob}}" >
                                 </div>
                                 @error('dob') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -131,7 +131,7 @@
                             <div class="form-group">
                                 <h5>Discount <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="discount" class="form-control" > 
+                                    <input type="text" name="discount" class="form-control" value="{{ $editStudent->discount->discount}}"  > 
                                 </div>
                                 @error('discount') 
                                 <span class="text-danger">{{ $message }}</span>
@@ -150,7 +150,7 @@
                                   <select name="year_id" id="year_id" required class="form-control">
                                     <option value="">Select year</option>
                                     @foreach($years as $year)
-                                    <option value="{{ $year->id }}">{{ $year->name }}</option>
+                                    <option value="{{ $year->id }}" {{ $editStudent->year_id == $year->id ? 'selected' : '' }}>{{ $year->name }}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -166,7 +166,7 @@
                                   <select name="class_id" id="class_id" required class="form-control">
                                     <option value="">Select class</option>
                                       @foreach($classes as $class)
-                                      <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                      <option value="{{ $class->id }}" {{ $editStudent->class_id == $class->id ? 'selected' : '' }}>{{ $class->name }}</option>
                                       @endforeach
                                 </select>
                                 </div>
@@ -182,7 +182,7 @@
                                   <select name="group_id" id="group_id" required class="form-control">
                                     <option value="">Select Group</option>
                                     @foreach($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    <option value="{{ $group->id }}" {{ $editStudent->group_id == $group->id ? 'selected' : '' }}>{{ $group->name }}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -203,7 +203,7 @@
                                   <select name="shift_id" id="shift_id" required class="form-control">
                                     <option value="">Select Shift</option>
                                     @foreach($shifts as $shift)
-                                    <option value="{{ $shift->id }}">{{ $shift->name }}</option>
+                                    <option value="{{ $shift->id }}" {{ $editStudent->shift_id == $shift->id ? 'selected' : '' }}>{{ $shift->name }}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -224,7 +224,7 @@
                             <div class="form-group">
                                   {{-- show image preview --}}
                                   <div class="controls">
-                                    <img style="height:100px; width:100px" id="showImage" src="{{ url('backend/uploads/default.png') }}" />
+                                    <img style="height:100px; width:100px" id="showImage" src="{{ (!empty($editStudent->student->image)) ? url('backend/uploads/students/',$editStudent->student->image) : url('backend/uploads/default.png') }}" />
                                 </div>
                             </div>
                         </div>                    
