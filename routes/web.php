@@ -15,7 +15,7 @@ use App\Http\Controllers\Backend\Setups\StudentFeeAmountController;
 use App\Http\Controllers\Backend\Setups\ExamTypeCOntroller;
 use App\Http\Controllers\Backend\Setups\SchoolSubjectController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
-
+use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\PDFController;
 /*
 |--------------------------------------------------------------------------
@@ -168,5 +168,8 @@ Route::prefix('students')->group(function () {
 
     //Search student using their class and year
     Route::get('/search/year/class', [StudentRegController::class,'SearchStudentByYearClass'])->name('student.search.year.class');
+  
+    //Generate student roll
+    Route::get('/generate/roll', [StudentRollController::class,'ViewRollGenerator'])->name('student.roll.generate.view');
 
 });
