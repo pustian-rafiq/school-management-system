@@ -13,7 +13,8 @@
               <h4 class="box-title">Student <strong>Search</strong></h4>
                 </div>
                   <div class="box-body">   
-                     <form method="GET" action=" " >
+                     <form method="POST" action="{{ route('student.roll.store')}}" >
+                      @csrf
                         <div class="row">
                             <div class="col-md-4">
               

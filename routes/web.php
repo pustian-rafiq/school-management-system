@@ -172,5 +172,6 @@ Route::prefix('students')->group(function () {
     //Generate student roll
     Route::get('/generate/roll', [StudentRollController::class,'ViewRollGenerator'])->name('student.roll.generate.view');
     Route::get('/roll/generate', [StudentRollController::class,'getStudents'])->name('student.registration.getstudents');
+    Route::post('/roll/store', [StudentRollController::class,'storeStudentRoll'])->name('student.roll.store');
 
 });
