@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\Setups\StudentFeeAmountController;
 use App\Http\Controllers\Backend\Setups\ExamTypeCOntroller;
 use App\Http\Controllers\Backend\Setups\SchoolSubjectController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
+use App\Http\Controllers\Backend\Student\StudentRegFeeController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\PDFController;
 /*
@@ -173,5 +174,8 @@ Route::prefix('students')->group(function () {
     Route::get('/generate/roll', [StudentRollController::class,'ViewRollGenerator'])->name('student.roll.generate.view');
     Route::get('/roll/generate', [StudentRollController::class,'getStudents'])->name('student.registration.getstudents');
     Route::post('/roll/store', [StudentRollController::class,'storeStudentRoll'])->name('student.roll.store');
+
+    //Generate student registration fee
+    Route::get('/reg/fee/generate/view', [StudentRegFeeController::class,'ViewRegFeeGenerator'])->name('student.reg.generate.view');
 
 });

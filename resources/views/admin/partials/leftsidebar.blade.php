@@ -93,6 +93,7 @@ $route = Route::current()->getName();
           <ul class="treeview-menu">
             <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
             <li><a href="{{ route('student.roll.generate.view') }}"><i class="ti-more"></i>Student Roll Generate</a></li>
+            <li><a href="{{ route('student.reg.generate.view') }}"><i class="ti-more"></i>Registration Fee Generate</a></li>
             
           </ul>
         </li>
