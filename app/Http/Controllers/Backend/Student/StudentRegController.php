@@ -267,14 +267,6 @@ public function UpdateStudentPromotion(Request $request,$student_id){
 public function StudentDetailsPdf($student_id){
     $studentDetails= AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first(); 
 
-    $data = [
-
-        'title' => 'Welcome to ItSolutionStuff.com',
-
-        'date' => date('m/d/Y')
-
-    ];
-
     $pdf = PDF::loadView('backend.student.student_reg.student_details_pdf', compact('studentDetails'));
 
 $code = $studentDetails->student->code;

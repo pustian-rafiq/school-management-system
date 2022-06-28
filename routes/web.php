@@ -177,5 +177,6 @@ Route::prefix('students')->group(function () {
 
     //Generate student registration fee
     Route::get('/reg/fee/generate/view', [StudentRegFeeController::class,'ViewRegFeeGenerator'])->name('student.reg.generate.view');
-
+    Route::get('/reg/fee/classwisedata', [StudentRegFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+    Route::get('/reg/fee/payslip', [StudentRegFeeController::class, 'RegFeePayslip'])->name('student.registration.fee.payslip');
 });
