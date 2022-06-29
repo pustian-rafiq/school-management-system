@@ -17,7 +17,6 @@
                       @csrf
                         <div class="row">
                             <div class="col-md-4">
-              
                                 <div class="form-group">
                                     <h5>Year <span class="text-danger"> </span></h5>
                                     <div class="controls">
@@ -28,7 +27,7 @@
                                             @endforeach
                                           </select>
                                   </div>		 
-                                  </div>     
+                                </div>     
                               </div> <!-- End Col md 4 --> 
                               <div class="col-md-4">
             
@@ -53,34 +52,34 @@
                            <!---- Roll generate table ---->
 
 
-                              <div class="row d-none" id="roll-generate">
-                                <div class="col-md-12">
-                                  <table class="table table-bordered table-striped" style="width: 100%">
-                                    <thead>
-                                      <tr>
-                                        <th>ID No</th>
-                                        <th>Student Name </th>
-                                        <th>Father Name </th>
-                                        <th>Gender</th>
-                                        <th>Roll</th>
-                                      </tr> 				
-                                    </thead>
-                                    <tbody id="roll-generate-tr">
-                                      
-                                    </tbody>
-                                    
-                                  </table>
+                          <div class="row d-none" id="roll-generate">
+                            <div class="col-md-12">
+                              <table class="table table-bordered table-striped" style="width: 100%">
+                                <thead>
+                                  <tr>
+                                    <th>ID No</th>
+                                    <th>Student Name </th>
+                                    <th>Father Name </th>
+                                    <th>Gender</th>
+                                    <th>Roll</th>
+                                  </tr> 				
+                                </thead>
+                                <tbody id="roll-generate-tr">
                                   
-                                </div>
+                                </tbody>
                                 
-                              </div>
+                              </table>
+                              
+                            </div>
+                            
+                    </div>
 
-                                <input type="submit" class="btn btn-info" value="Roll Generator">
-        
-                            </form>
-                        </div>
-                      </div>
-                </div>
+                      <input type="submit" class="btn btn-info" value="Roll Generator">
+  
+                  </form>
+              </div>
+            </div>
+   </div>
  {{-- End student search section --}}
 
  

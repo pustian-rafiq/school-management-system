@@ -269,7 +269,7 @@ public function StudentDetailsPdf($student_id){
 
     $pdf = PDF::loadView('backend.student.student_reg.student_details_pdf', compact('studentDetails'));
 
-$code = $studentDetails->student->code;
+    $code = $studentDetails->student->code;
     return $pdf->download($code.'.pdf');
 }
 

@@ -73,11 +73,15 @@ class StudentRegFeeController extends Controller
     $student_id = $request->student_id;
     $class_id = $request->class_id;
 
-    $allStudent['details'] = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->where('class_id',$class_id)->first();
+    $allStudentDetails = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->where('class_id',$class_id)->first();
 
-    $pdf = PDF::loadView('backend.student.registration_fee.registration_fee_pdf', $allStudent);
-    $pdf->SetProtection(['copy', 'print'], '', 'pass');
-    return $pdf->stream('document.pdf');
+    // $pdf = PDF::loadView('backend.student.registration_fee.reg_fee_pdf', $allStudent);
+    // $pdf->SetProtection(['copy', 'print'], '', 'pass');
+    // return $pdf->stream('document.pdf');
+
+    $pdf = PDF::loadView('backend.student.registration_fee.reg_fee_pdf', compact('allStudentDetails'));
+    $code = $allStudentDetails->student->code;
+    return $pdf->download($code.'.pdf');
 
 }
 }
