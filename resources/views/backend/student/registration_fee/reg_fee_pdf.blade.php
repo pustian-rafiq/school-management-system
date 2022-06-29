@@ -36,10 +36,10 @@
 
                 </h2>
             </td>
-            <td><h2>Easy School ERP</h2>
-                <p>School Address</p>
-                <p>Phone : 343434343434</p>
-                <p>Email : support@easylerningbd.com</p>
+            <td><h2>Khanjia High School</h2>
+                <p>Nalta Road,Khanjia, Kaliganj, Satkhira</p>
+                <p>Phone : 01991166550</p>
+                <p>Email : khs@gmail.com</p>
                 <p> <b> Student Registration Fee</b> </p>
              </td> 
         </tr>
