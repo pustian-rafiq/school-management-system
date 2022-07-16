@@ -33,20 +33,20 @@
                 <h2>
                     <?php $image_path = '/upload/easyschool.png'; ?>
                     <img src="{{ public_path() . $image_path }}" width="200" height="100">
-
                 </h2>
             </td>
-            <td><h2>Khanjia High School</h2>
+            <td style="margin-bottom:0px">
+                <h2>Khanjia High School</h2>
                 <p>Nalta Road,Khanjia, Kaliganj, Satkhira</p>
                 <p>Phone : 01991166550</p>
                 <p>Email : khs@gmail.com</p>
-                <p> <b> Student Monthly Fee</b> </p>
+                <p> <b> Student Exam Fee</b> </p>
              </td> 
         </tr>
     </table>
 
     @php 
-    $registrationfee = App\Models\StudentFeeAmount::where('fee_category_id','1')->where('class_id',$allStudentDetails->class_id)->first();
+    $registrationfee = App\Models\StudentFeeAmount::where('fee_category_id','4')->where('class_id',$allStudentDetails->class_id)->first();
     $originalfee = $registrationfee->amount;
             $discount = $allStudentDetails['discount']['discount'];
             $discounttablefee = $discount/100*$originalfee;
@@ -77,42 +77,39 @@
             <td>{{ $allStudentDetails['student']['name'] }}</td>
         </tr>
 
+       
         <tr>
             <td>4</td>
-            <td><b>Father's Name</b></td>
-            <td>{{ $allStudentDetails['student']['father_name'] }}</td>
-        </tr>
-        <tr>
-            <td>5</td>
             <td><b>Session</b></td>
             <td>{{ $allStudentDetails['student_year']['name'] }}</td>
         </tr>
         <tr>
-            <td>6</td>
+            <td>5</td>
             <td><b>Class </b></td>
             <td>{{ $allStudentDetails['student_class']['name'] }}</td>
         </tr>
+        
         <tr>
-            <td>7</td>
-            <td><b>Registration Fee</b></td>
-            <td>{{ $originalfee }} $</td>
+            <td>6</td>
+            <td><b>Exam Fee </b></td>
+            <td>{{ $discount  }} %</td>
         </tr>
         <tr>
-            <td>8</td>
+            <td>7</td>
             <td><b>Discount Fee </b></td>
             <td>{{ $discount  }} %</td>
         </tr>
 
             <tr>
-            <td>9</td>
-            <td><b>Fee For this Student </b></td>
+            <td>8</td>
+            <td><b>Fee For this Student of {{$exam_type}} </b></td>
             <td>{{ $finalfee }} $</td>
         </tr>
     </table>
-    <br> <br>
-    <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
+    <br>  
+    <i style="font-size: 10px; float: right">Print Data : {{ date("d M Y") }}</i>
 
-    <hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
+    <hr style="border: solid 1px #000; width: 95%; color: #000000; margin-bottom: 20px; margin-top:15px">
 
     <table id="customers">
         <tr>
@@ -139,37 +136,32 @@
 
         <tr>
             <td>4</td>
-            <td><b>Mother's Name</b></td>
-            <td>{{ $allStudentDetails['student']['mother_name'] }}</td>
-        </tr>
-        <tr>
-            <td>5</td>
             <td><b>Session</b></td>
             <td>{{ $allStudentDetails['student_year']['name'] }}</td>
         </tr>
         <tr>
-            <td>6</td>
+            <td>5</td>
             <td><b>Class </b></td>
             <td>{{ $allStudentDetails['student_class']['name'] }}</td>
         </tr>
         <tr>
-            <td>7</td>
-            <td><b>Monthly Fee</b></td>
+            <td>6</td>
+            <td><b>Exam Fee</b></td>
             <td>{{ $originalfee }} $</td>
         </tr>
         <tr>
-            <td>8</td>
+            <td>7</td>
             <td><b>Discount Fee </b></td>
             <td>{{ $discount  }} %</td>
         </tr>
 
             <tr>
-            <td>9</td>
-            <td><b>Fee For this Student </b></td>
+            <td>8</td>
+            <td><b>Fee For this Student of {{$exam_type}} </b></td>
             <td>{{ $finalfee }} $</td>
         </tr> 
     </table>
-    <br> <br>
+    <br> 
     <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
 
 </body>

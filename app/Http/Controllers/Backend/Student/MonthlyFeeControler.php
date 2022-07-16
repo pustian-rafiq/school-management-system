@@ -80,7 +80,7 @@ class MonthlyFeeControler extends Controller
     // $pdf->SetProtection(['copy', 'print'], '', 'pass');
     // return $pdf->stream('document.pdf');
 
-    $pdf = PDF::loadView('backend.student.registration_fee.reg_fee_pdf', compact('allStudentDetails'));
+    $pdf = PDF::loadView('backend.student.monthly_fee.monthly_fee_pdf', compact('allStudentDetails'));
     $code = $allStudentDetails->student->code;
     return $pdf->download($code.'.pdf');
 
