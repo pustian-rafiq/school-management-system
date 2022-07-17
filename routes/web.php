@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setups\AsignSubjectController;
@@ -195,6 +196,9 @@ Route::prefix('students')->group(function () {
     Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
 });
 
-
+    //Employee management routes here 
+    Route::prefix('employees')->group(function () {
+        Route::get('/registration/view', [EmployeeRegController::class,'ViewEmployee'])->name('employee.registration.view');
+    });
 
 });
