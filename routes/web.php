@@ -48,6 +48,8 @@ Route::middleware([
 // Admin logout
 Route::get('admin/logout', [AdminController::class,'Logout'])->name('admin.logout');
 
+//Without authenticated users, it is not possible to access these routes
+Route::group(['middleware'=>'auth'], function () {
 
 
 //Users routes here 
@@ -191,4 +193,8 @@ Route::prefix('students')->group(function () {
     Route::get('/exam/fee/view', [ExamFeeController::class,'ViewExamFee'])->name('student.exam.fee.view');
     Route::get('/exam/fee/classwisedata', [ExamFeeController::class, 'ExamFeeClassData'])->name('student.exam.fee.classwise.get');
     Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
+});
+
+
+
 });
