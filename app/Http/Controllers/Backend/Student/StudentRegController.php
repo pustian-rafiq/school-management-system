@@ -37,7 +37,7 @@ class StudentRegController extends Controller
         return view('backend.student.student_reg.add_student',compact('classes', 'groups', 'years','shifts'));
     }
 
-//STore student data
+//Store student data
 public function StoreStudentRegistration(Request $request){
     //ekhane transaction use kora hoi database a eksathe onek gulo operation korar jonno
     DB::transaction(function() use($request) {
