@@ -201,6 +201,7 @@ Route::prefix('students')->group(function () {
         Route::get('/registration/view', [EmployeeRegController::class,'ViewEmployee'])->name('employee.registration.view');
         Route::get('/registration/add', [EmployeeRegController::class,'AddEmployee'])->name('employee.registration.add');
         Route::post('/registration/store', [EmployeeRegController::class,'StoreEmployeeRegistration'])->name('employee.registration.store');
+        Route::get('/registration/edit/{id}', [EmployeeRegController::class,'EditEmployeeRegistration'])->name('employee.registration.edit');
     });
 
 });

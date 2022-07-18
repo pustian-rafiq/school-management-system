@@ -44,8 +44,8 @@
                             <td>{{$employee->code }}</td>
                             @endif
                             <td style="width: 20%">
-                              <a href="{{ route('designation.edit',$employee->id) }}" class="btn btn-success">Edit</a>
-                              <a href="{{ route('designation.delete',$employee->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                              <a href="{{ route('employee.registration.edit',$employee->id) }}" class="btn btn-success">Edit</a>
+                              {{-- <a href="{{ route('student.registration.delete',$employee->id) }}" class="btn btn-danger" id="delete">Delete</a> --}}
                             </td>
                         </tr>
                           @endforeach 

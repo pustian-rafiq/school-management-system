@@ -105,4 +105,10 @@ public function StoreEmployeeRegistration(Request $request){
     return redirect()->route('employee.registration.view')->with($notification);
   }
 
+  //Edit employee registration
+  public function EditEmployeeRegistration($id){
+    $editEmployee = User::find($id);
+    $designations = Designation::all();
+    return view('backend.employee.employee_reg.edit_employee',compact('editEmployee','designations'));
+  }
 }
